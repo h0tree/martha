@@ -81,3 +81,22 @@ body {
     width: 100%;
     height: 100%;
 }
+
+.text-olimpiad {
+    margin: 0;
+    font-family: Montserrat;
+    font-weight: 300;
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+}
+.text-olimpiad-span {
+    margin: 0;
+    font-family: Montserrat;
+    font-weight: 700;
+    color: #000000;
+    font-size: 20px;
+    text-align: center;
+}
+
+
