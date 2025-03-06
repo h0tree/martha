@@ -1,48 +1,175 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <title>Моё портфолио</title>
-        <meta charset="utf-8">
-        <link href="styles.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <main class="content">
-            <div class="welcome">
-                <h1 class="title-welocome"></h1>
-                <p class="text-welcome">Музыкантов Владислав Васильевич</p>
-                <p class="text-welcome">24.07.2009</p>
-            </div>
-            <div class="oc-li">
-                <h2 class="title">Социально-личное развитие</h2>
-                <div сlass="flex">
-                <h3 class="subtitle">Кто я?</h3>
-                    <p class="text">Я человек</p>
-                    <p class="text">Я сын</p>
-                    <p class="text">Я брат</p>
-                    <p class="text">Я дядя</p>
-                <h3 class="subtitle">Какой я?</h3>
-                    <p class="text">Я добрый</p>
-                    <p class="text">Я хороший</p>
-                    <p class="text">Я нервный</p>
-                    <p class="text">Я фантазёр</p>
-                </div>
-            </div>
-            <div class="samo-liz">
-                <h2 class="title">Самоанализ</h2>
-            </div>
-            <div class="yh-poz-byd">
-            <h2 class="title">Учебно-позновательное развитие будущего </h2>
-            </div>
-            <div class="olimpiad">
-                <h2 class="title">Я участвую в олимпиадах</h2>
-                <div>
-                    <p class="text-olimpiad">Школьная олимпиада по экономике: <span class="text-olimpiad-span">1 место</span></p>
-                </div>
-            </div>
-        </main>
-    </body>
+<head>
+    <title>Книжная лавка</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* Установим высоту для body */
+        }
+
+        .main {
+            width: 100%;
+            min-height: 100vh; /* Высота равна высоте экрана */
+            background: rgb(243,217,217);
+            background: linear-gradient(45deg, rgba(243,217,217,1) 0%, rgba(211,134,134,1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            width: 90%; /* Ширина 90% от родителя */
+            max-width: 328px; /* Но не больше 328px */
+            height: auto; /* Высота адаптируется под контент */
+            min-height: 452px; /* Минимальная высота */
+            background: #F2F2F2;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .rose {
+            width: 67px; /* Ширина равна ширине контейнера */
+            height: 84px; /* Высота адаптируется пропорционально */
+            border-radius: 20px; /* Скругление углов */
+            transform: scale();
+            transform: translateY(-50px);
+        }
+
+
+        .active {
+            animation: active 1s forwards;
+        }
+
+
+
+        .title {
+            width: 100%;
+            height: 100%;
+            color: #F2F2F2;
+            font-family: 'Unbounded';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .title-active {
+            color: #D38686;
+            animation: active2 1s forwards;
+        }
+        .text {
+            width: 100%;
+            height: 100%;
+            color: #F2F2F2;
+            text-align: center;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 21px;
+            font-family: 'Ysabeau Infant';
+            font-style: normal;
+        }
+        .text-active {
+            color: #D38686;
+            animation: active2 1s forwards;
+        }
+
+        @keyframes active {
+            from {
+                transform: translateY(-50px);
+            }
+
+            to {
+                transform: translateY(50px);
+
+            }
+        }
+        
+
+        @keyframes active2 {
+            from {
+                transform: translateY(5px);
+                color: #F2F2F2;
+            }
+
+            to {
+                transform: translateX(0px);
+                color: #D38686;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <main class="main">
+        <section class="content">
+            <h1 class="title">C 8 марта!</h1>
+            <p class="text">Текст</p>
+            <img src="/rose.png" alt="Цветы" class="rose">
+        </section>
+    </main>
+    <script>
+let rose = document.querySelector('.rose');
+let title = document.querySelector('.title')
+let text = document.querySelector('.text')
+let i = 0;
+
+
+const wishes1 = [
+  "Пусть твоя жизнь будет наполнена радостью и гармонией!",
+  "Желаю тебе крепкого здоровья и неиссякаемой энергии!",
+  "Пусть каждый день приносит тебе новые возможности и приятные сюрпризы!",
+  "Желаю, чтобы твои мечты сбывались легко и быстро!",
+  "Пусть в твоей жизни всегда будет место для любви и счастья!",
+  "Желаю тебе вдохновения и успехов во всех начинаниях!",
+  "Пусть твоя жизнь будет такой же яркой, как весенние цветы!",
+  "Желаю, чтобы ты всегда чувствовала себя любимой и нужной!",
+  "Пусть в твоей жизни будет больше радостных моментов и меньше забот!",
+  "Желаю тебе всегда оставаться такой же красивой и уверенной в себе!"
+];
+
+const wishes2 = [
+  "Пусть твоя улыбка освещает всё вокруг!",
+  "Желаю, чтобы твоя жизнь была наполнена теплом и уютом!",
+  "Пусть каждый день приносит тебе новые поводы для радости!",
+  "Желаю, чтобы ты всегда находила время для себя и своих увлечений!",
+  "Пусть твоя жизнь будет такой же прекрасной, как этот весенний день!",
+  "Желаю тебе всегда оставаться такой же доброй и мудрой!",
+  "Пусть в твоей жизни будет больше моментов, которые греют душу!",
+  "Желаю, чтобы ты всегда была окружена любящими и заботливыми людьми!",
+  "Пусть твоя жизнь будет наполнена яркими красками и приятными событиями!",
+  "Желаю тебе всегда идти по жизни с лёгкостью и уверенностью!"
+];
+
+
+function textInner(arror) {
+    let randomNumber = Math.floor(Math.random()*arror.length)
+
+    return arror[randomNumber]
+}
+
+let text1 = textInner(wishes1)
+let text2 = textInner(wishes2)
+
+
+rose.addEventListener('click', () => {
+    rose.classList.add('active');
+
+
+    title.classList.add('title-active');
+    text.classList.add('text-active');
+
+    text.innerHTML = text1 + '<br>' + text2;
+})
+
+    </script>
+</body>
 </html>
