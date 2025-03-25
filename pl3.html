@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html land="ru">
+<head>
+    <title>Презинтация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <style>
+
+@font-face {
+  font-family: "Phorssa";
+  src: local("Phorssa Regular"),
+    local("Phorssa-Regular"),
+    url("Phorssa.ttf") format("ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "beer money";
+  src: local("beer money Regular"),
+    local("beer money-Regular"),
+    url("beer money.ttf") format("ttf");
+  font-weight: normal;
+}
+
+.act {
+    background: url(../pl3.png);
+}
+
+.title {
+    width: 100%;
+    font-family: 'Phorssa';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 120px;
+    line-height: 138px;
+    text-align: center;
+    color: #000000;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.sub-title {
+    width: 886px;
+    font-family: 'beer money';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000000;
+}
+
+
+    </style>
+</head>
+<body class="act">
+        <h1 class="title">Цели и задачи:​</h1>
+        <div class="content">
+            <p class="sub-title">Цель работы: исследовать возможности программы  Visual Studio Code, создать дизайн-макет сайта.​ Для достижения намеченной цели поставлены следующие задачи:​​</p>
+                <ul>
+                    <li class="sub-title">изучить среду программирования Visual Studio Code и ее возможности;​</li>
+                    <li class="sub-title">создать дизайн-макет сайта;</li>
+                    <li class="sub-title">провести анализ полученных результатов.</li>
+                </ul>
+        </div>
+</body>
+<script>
+
+    let ClassMain = document.querySelector('.act');
+    
+    ClassMain.addEventListener('click', () => {
+        window.location.href = `pl4.html`;
+    })
+    
+    
+    </script>
+</html>
