@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Книжная лавка</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/styles.css">
+    
+    </head>
+    <body>
+        <header class="header">
+            <a class="name__shop" href="index.html">Книжная лавка</a>
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
+                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Подобрать книгу</a></li>
+                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Оплата и доставка</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main__product">
+            <div class="product__content">
+                <section class="product_preview">
+                    <div class="preview__top">
+                        <h1 class="preview_title">Хочу съесть твою поджелудочную</h1>
+                        <p class="preview_auther">Автор: <span class="auther">Ёру синобу</span></p>
+                    </div>
+                    <img src="/imges/book/book0.webp" class="preview_imges">
+                </section>
+                <section class="preview__description">
+                    <div class="preview__description-content">
+                        <h2 class="description-title">Описание</h2>
+                        <p class="description-p description-p__product">— Просто уточняю — именно мою?<br>— Чью же ещё?<br>Однажды, когда я учился в старшей школе, я подобрал в больнице одну книгу. Она называлась «Книга жизни с болезнью». Это был дневник, который тайно вела моя одноклассница Сакура Ямаути. И в нём она написала, что из-за заболевания поджелудочной железы жить ей осталось недолго…</p>
+                    </div>
+                </section>
+                <section class="product__information">
+                    <div class="information__content">
+                    <p class="information__p"><span class="informationName">Жанр: </span><span class="informationText"></span></p>
+                    <p class="information__p"><span class="informationName">Издательство: </span><span class="informationText"></span></p>
+                    <p class="information__p"><span class="informationName">Год издания: </span><span class="informationText"></span></p>
+                    <p class="information__p"><span class="informationName">Возрастное ограничение: </span><span class="informationText"></span></p>
+                    </div>
+                </section>
+                <section class="product_promo">
+                    <input type="text" class="product_promo_input" placeholder="Промокод"></button>
+                    <button class="product_actived">Применить</button>
+                    <button class="product_buy"></button>
+                </section>
+                <section class="product_price">
+                    <p class="product_price_title">Итоговая цена:</p>
+                    <p class="product_price_text">2000</p>
+                </section>
+            </div>
+        </main>
+        <div class="announcement">
+            <h3 class="announcement__title">УСПЕШНО</h3>
+            <p class="announcement__p">Вы успешно оплатили заказ!</p>
+        </div>
+    </body>
+    <script src="/script/data.js"></script>
+    <script src="/script/randomBook.js"></script>
+    <script src="/script/product_profile.js"></script>
+    <script src="/script/anons.js"></script>
+    <script src="/script/promo.js"></script>
+</html>

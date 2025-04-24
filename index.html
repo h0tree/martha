@@ -1,35 +1,71 @@
 <!DOCTYPE html>
-<html land="ru">
+<html lang="ru">
 <head>
-    <title>Презинтация</title>
+    <title>Книжная лавка</title>
+    <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap" rel="stylesheet">
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+
 </head>
-<body class="content">
-    <div class="main">
-        <h1 class="title">Создание сайта</h1>
-        <p class="sub-title">Музыкантов В.В., 9«Г» класс​<br>
-            Руководитель: Скородумова Н.Г., ​​<br>
-            учитель математики, информатики IКК​​<br>
-            МКОУ СОШ №2 им.Н.Д.Рязанцева, г.Семилуки​</p>
+<body class="body">
+    <div class="announcement">
+        <h3 class="announcement__title">УСПЕШНО</h3>
+        <p class="announcement__p">Вы успешно оплатили заказ!</p>
+    </div>
+    <div class="payment">
+        <div class="payment__window">
+            <p class="payment__BefPrice">к оплате</p>
+            <p class="payment__price">3000</p>
+            <p class="payment__subPrice">рублей</p>
+            <div class="payment__string"></div>
+            <form action="" class="payment__form">
+                <input type="text" class="payment__input" placeholder="Ваш адресс" required></input>
+                <input type="email" class="payment__input" placeholder="Ваш email" required></input>
+                <button class="payment__pay" type="submit">Купить</button>
+            </form>
         </div>
-    <div class="next"></div>
-    <script>
-let next = document.querySelector('.next')
+    </div>
+    <header class="header">
+        <a class="name__shop" href="index.html">Книжная лавка</a>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
+                <li class="menu__list-item"><a class="menu__list-item__link" href="#">Подобрать книгу</a></li>
+                <li class="menu__list-item"><a class="menu__list-item__link" href="#">Оплата и доставка</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <section class="main">
+            <div class="banner banner-martha">
+                <button class="arrrow arrrow-left" disabled></button>
+                <button class="arrrow arrrow-right"></button>
+            </div>
+            <div class="recommendation">
+                <div class="recommend-card">
+                    <h4 class="recommend-card__title">Лучшие книги</h4>
+                    <p class="recommend-card__subtitle">Книги, которые, по мнению редакции, обязан прочесть каждый.</p>
+                </div>
+                <div class="recommend-card">
+                    <h4 class="recommend-card__title">Интересные новинки</h4>
+                    <p class="recommend-card__subtitle">Новые книги, которые привлекли внимание нашей редакции.</p>
+                </div>
+            </div>
+        </section>
+        <section class="new">
+            <h2 class="new__title">НОВИНКИ ЛИТЕРАТУРЫ</h2>
+            <ul class="product-list">
+            </ul>
+        </section>
+    </main>
 
-next.addEventListener('click', () => {
-    next.style.animetionName = 'next_sl'
-
-    window.location.href = `pl2.html`;
-
-})
-
-
-
-
-    </script>
+    <script src="/script/data.js"></script>
+    <script src="/script/randomBook.js"></script>
+    <script src="/script/payment.js"></script>
+    <script src="/script/card.js"></script>
+    <script src="/script/banner.js"></script>
 </body>
 </html>

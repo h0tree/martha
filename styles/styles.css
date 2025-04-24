@@ -1,0 +1,852 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    background-color: #FCFCFC;
+}
+
+.header {
+    height: 70px;
+    background-color: #0A183C;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 85px;
+}
+
+.name__shop {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FFFFFF;
+    margin: 0;
+    padding-left: 103px;
+    text-decoration: none;
+}
+
+.menu {
+    height: min-content;
+}
+
+.menu__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    column-gap: 51px;
+}
+
+.menu__list-item__link {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: 1px solid #0A183C;
+    transition: border-bottom 0.5s;
+}
+.menu__list-item__link:hover {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.content {
+    padding: 0 103px;
+}
+
+.main {
+    height: 826px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 85px;
+}
+
+
+
+.recommendation {
+    display: flex;
+    flex-direction: column;
+    row-gap: 89px;
+}
+
+.recommend-card {
+    box-sizing: border-box;
+    width: 500px;
+    height: 200px;
+    background: #FFFFFF;
+    border: 2px solid #DCDCDC;
+    border-radius: 20px;
+    transition: background-color 0.1s, color 0.1s;
+}
+
+.recommend-card:hover {
+    background-color: #1854ED;
+    color: #FFFFFF
+}
+
+.recommend-card__title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+
+    text-align: center;
+}
+
+.recommend-card__subtitle {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.new__title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+    color: #000000;
+    text-align: center;
+    padding-bottom: 134px;
+}
+
+.product-list {
+    display: flex;
+    list-style-type: none;
+    column-gap: 60px;
+}
+
+.product-list-item {
+    width: 315px;
+    height: 548px;
+    background: #F9F9F9;
+    border: 2px solid #DCDCDC;
+    border-radius: 20px;
+}
+
+.product-list-item__title {
+    width: 230px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    margin: 0;
+    padding: 25px 0 0 0;
+}
+
+.product-list-item__auther {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #787878;
+    margin: 0;
+    padding: 0;
+}
+
+.product-list-item__price {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #203F9A;
+}
+
+.product-list-item__buy {
+    background-color: #1854ED;
+    background-image: url(/imges/icon_buy.svg);
+    background-position: center;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    width: 39px;
+    height: 39px;
+    border-radius: 5px;
+}
+
+.product-list-item-card {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    column-gap: 44px;
+}
+
+.product-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.product-list-item__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+
+.product-list-item__img {
+    width: 226px;
+    height: 317px;
+}
+
+.product-list-item__img-hidden {
+    width: 226px;
+    height: 317px;
+    display: none;
+}
+
+.imges_content {
+    width: 226px;
+    height: 317px;
+}
+.description-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #888888;
+    text-align: center;
+    animation-name: card_up;
+    animation-duration: 1s;
+    margin: 0;
+}
+.description-p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    text-align: center;
+    animation-name: card_up;
+    animation-duration: 1s;
+    margin: 0;
+}
+.hidden {
+    display: none;
+}
+
+.payment {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.payment--open {
+    display: flex;
+}
+
+.payment__window {
+    box-sizing: border-box;
+    width: 408px;
+    height: 533px;
+    background: #FCFCFC;
+    border: 2px solid #DCDCDC;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment__BefPrice {
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #CACACA;
+    margin: 0;
+    padding-top: 33px;
+}
+
+.payment__price {
+    width: 100%;
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 96px;
+    line-height: 119px;
+    text-align: center;
+    color: #1854ED;
+    margin: 0;
+}
+
+.payment__subPrice {
+    /* рублей */
+    width: 100%;
+    height: 20px;
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    color: #1854ED;
+    margin: 0;
+    padding-bottom: 30px;
+
+}
+
+.payment__string {
+    width: 330px;
+    height: 0px;
+    border: 2px solid #DCDCDC;
+    margin-bottom: 26px;
+}
+
+.payment__input {
+    box-sizing: border-box;
+    width: 286px;
+    height: 68px;
+    background: #FCFCFC;
+    border: 2px solid #DCDCDC;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    outline: #1854ED;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+.payment__input::placeholder {
+    width: 100%;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #CACACA;
+}
+
+
+.payment__pay {
+    width: 286px;
+    height: 76px;
+    background: #1854ED;
+    border-radius: 20px;
+    border: none;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    transition: background-color 0.2s ease;
+}
+.payment__pay:hover {
+    background-color: #225cf0;
+}
+.payment__pay:active {
+    background-color: #a3a3a3;
+}
+
+.confirmation__background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation {
+   width: 600px;
+   height: 350px;
+   background-color: #F9F9F9;
+   border-radius: 18px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.confirmation__title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 49px;
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+.confirmation__p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+    align-items: center;
+    width: 100%;
+    filter: none;
+}
+
+.confirmation__button_close {
+    width: 200px;
+    height: 50px;
+    background-color: #787878;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+}
+.confirmation__button_open {
+    width: 200px;
+    height: 50px;
+    background-color: #1854ED;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+}
+.confirmation__button__p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.confirmation_button {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/* Страница продукта */
+
+.main__product {
+    background: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 1020px; 
+}
+.product__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 17px;
+    column-gap: 107px;
+    grid-template-areas:
+    "preview description"
+    "preview information"
+    "preview promo"
+    "preview price"
+}
+
+.preview__description {
+    width: 520px;
+    height: 318px;
+    background-color: #FCFCFC;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: description;
+    animation-name: appearance_right;
+    animation-duration: 1s;
+}
+
+.preview__description-content {
+    width: 450px;
+    height: auto;
+}
+
+.description-p__product {
+    text-align: start;
+}
+
+.product_promo {
+    width: 520px;
+    height: 107px;
+    background-color: #FCFCFC;
+    border-radius: 25px;
+    grid-area: promo;
+}
+
+.product_promo_input {
+    box-sizing: border-box;
+    width: 247.92px;
+    height: 35px;
+    background: #FFFFFF;
+    border: 2px solid #787878;
+    border-radius: 25px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    box-shadow: none;
+
+    animation-name: appearance;
+    animation-duration: 1s;
+}
+.product_promo_input::placeholder {
+    color: #B5B5B5;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    box-shadow: none;
+}
+
+
+.product_promo_input:focus {
+    border-color: #1854ED;
+    outline: none;
+}
+
+.product_actived {
+    width: 156.47px;
+    height: 35px;
+    background: #1854ED;
+    border-radius: 25px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    color: #FFFFFF;
+    box-shadow: none;
+    border: 0;
+    outline: none;
+    transition: background-color 0.15s;
+
+    animation-name: appearance;
+    animation-duration: 1s;
+    }
+.product_actived:hover {
+    background-color:#275fec
+    }
+.product_actived:active {
+    background-color:#93959b
+    }
+
+.product_buy {
+    background: #1854ED url(../imges/icon_buy.svg) center right 7px  no-repeat;
+    background-size: 20px;
+    width: 35px;
+    height: 35px;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 0.15s;
+}
+.product_buy:hover {
+    background-color:#275fec
+}
+.product_buy:active {
+    background-color:#93959b
+}
+
+.product_promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    animation-name: appearance_right;
+    animation-duration: 1s;
+}
+
+.product_price {
+    grid-area: price;
+    background: #FCFCFC;
+    border-radius: 25px;
+    height: 190px;
+
+    animation-name: appearance_right;
+    animation-duration: 1s;
+}
+
+.product_price_title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #787878;
+    padding-top: 23px;
+    margin: 0;
+}
+
+.product_price_text {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 96px;
+    line-height: 119px;
+    text-align: center;
+    color: #1854ED;
+    padding: 0;
+    margin: 0;
+}
+
+.product_preview {
+    background: #FCFCFC;
+    border-radius: 25px;
+    width: 520px;
+    height: 803px;
+    grid-area: preview;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation-name: appearance_left;
+    animation-duration: 1s;
+}
+
+.preview_title {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    color: #000000;
+}
+
+.preview_auther {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #888888;
+}
+
+
+.preview__top {
+    width: 369px;
+}
+
+.preview_imges {
+    border-radius: 20px;
+    width: 282px;
+    height: 432px;
+}
+
+.product__information {
+    width: 520px;
+    height: 140px;
+    background: #FCFCFC;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    grid-area: information;
+
+    animation-name: appearance_right;
+    animation-duration: 1s;
+}
+
+.informationName {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #1854ED;
+}
+
+.informationText {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.information__p {
+    padding-left: 23px;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.banner {
+    width: 1129px;
+    height: 504px;
+    background: #434242;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-image 0.2s ease;
+}
+
+.banner-martha {
+    background-image: url(/imges/banner/martha.png);
+}
+.banner-steepness {
+    background-image: url(/imges/banner/steepness.png);
+}
+
+.arrrow {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    transition: opacity 0.5s ease;
+}
+
+.arrrow-left {
+    background-image: url(../imges/arrow1-left.png);
+    transition: background-image 0.3s ease;
+    margin-left: 60px;
+
+}
+.arrrow-left:hover {
+    background-image: url(../imges/arrow2-left.png);
+}
+
+.arrrow-right {
+    background-image: url(../imges/arrow1-right.png);
+    transition: background-image 0.3s ease;
+    margin-right: 60px;
+}
+.arrrow-right:hover {
+    background-image: url(../imges/arrow2-right.png);
+}
+
+.arrrow:disabled {
+    opacity: 0;
+}
+
+.announcement {
+    position: fixed;
+    right: 2px;
+    bottom: 60px;
+    width: 495px;
+    height: 109px;
+    background: #FCFCFC;
+    border: 2px solid #DCDCDC;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    background: #FFFFFF url(/imges/anons.png) no-repeat center left 28px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.announcement__open {
+    opacity: 1; 
+}
+
+.announcement__title {
+    width: 397px;
+    height: 20px;
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1854ED;
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 28px;
+}
+
+.announcement__p {
+    width: 397px;
+    height: auto;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+/** Анимация **/
+
+@keyframes appearance_right {
+    from {
+        transform: translateX(1000px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+@keyframes appearance_left {
+    from {
+        transform: translateX(-1000px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+@keyframes card_up {
+    from {
+        transform: translateY(5px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
