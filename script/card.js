@@ -37,7 +37,7 @@ function MakeNodeImg(css, parEl, img) {
     let node = document.createElement('img');
     let partElem = document.querySelector(parEl);
     node.classList.add(css);
-    node.src = `../imges/book/book${img}.webp`;
+    node.src = `imges/book/book${img}.webp`;
     partElem.prepend(node);
 
 }
