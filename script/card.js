@@ -71,7 +71,7 @@ product.forEach((element, index) => {
     let img = document.createElement('img');
     let partElemImg = document.querySelector('.imges_content');
     img.classList.add('product-list-item__img');
-    img.src = `/imges/book/book${index}.webp`;
+    img.src = `imges/book/book${index}.webp`;
     partElemImg.prepend(img);
 
 
