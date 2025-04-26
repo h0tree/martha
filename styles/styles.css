@@ -168,7 +168,7 @@ body {
 
 .product-list-item__buy {
     background-color: #1854ED;
-    background-image: url(imges/icon_buy.svg);
+    background-image: url("imges/icon_buy.svg");
     background-position: center;
     background-size: 18px;
     background-repeat: no-repeat;
@@ -573,7 +573,7 @@ body {
     }
 
 .product_buy {
-    background: #1854ED url(../imges/icon_buy.svg) center right 7px  no-repeat;
+    background: #1854ED url("imges/icon_buy.svg") center right 7px  no-repeat;
     background-size: 20px;
     width: 35px;
     height: 35px;
@@ -724,10 +724,10 @@ body {
 }
 
 .banner-martha {
-    background-image: url(imges/banner/martha.png);
+    background-image: url("imges/banner/martha.png");
 }
 .banner-steepness {
-    background-image: url(imges/banner/steepness.png);
+    background-image: url("imges/banner/steepness.png");
 }
 
 .arrrow {
@@ -740,22 +740,22 @@ body {
 }
 
 .arrrow-left {
-    background-image: url(imges/arrow1-left.png);
+    background-image: url("imges/arrow1-left.png");
     transition: background-image 0.3s ease;
     margin-left: 60px;
 
 }
 .arrrow-left:hover {
-    background-image: url(imges/arrow2-left.png);
+    background-image: url("imges/arrow2-left.png");
 }
 
 .arrrow-right {
-    background-image: url(imges/arrow1-right.png);
+    background-image: url("imges/arrow1-right.png");
     transition: background-image 0.3s ease;
     margin-right: 60px;
 }
 .arrrow-right:hover {
-    background-image: url(imges/arrow2-right.png);
+    background-image: url("imges/arrow2-right.png");
 }
 
 .arrrow:disabled {
@@ -774,7 +774,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: end;
-    background: #FFFFFF url(../imges/anons.png) no-repeat center left 28px;
+    background: #FFFFFF url("imges/anons.png") no-repeat center left 28px;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
