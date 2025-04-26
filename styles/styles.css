@@ -573,7 +573,7 @@ body {
     }
 
 .product_buy {
-    background: #1854ED url(../../imges/icon_buy.svg) center right 7px  no-repeat;
+    background: #1854ED url(../imges/icon_buy.svg) center right 7px  no-repeat;
     background-size: 20px;
     width: 35px;
     height: 35px;
