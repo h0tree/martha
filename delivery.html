@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Книжная лавка</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/article.css">
+    
+    </head>
+    <body class="body">
+        <div class="announcement">
+            <h3 class="announcement__title">УСПЕШНО</h3>
+            <p class="announcement__p">Вы успешно оплатили заказ!</p>
+        </div>
+        <div class="payment">
+            <div class="payment__window">
+                <p class="payment__BefPrice">к оплате</p>
+                <p class="payment__price">3000</p>
+                <p class="payment__subPrice">рублей</p>
+                <div class="payment__string"></div>
+                <form action="" class="payment__form">
+                    <input type="text" class="payment__input" placeholder="Ваш адрес" required></input>
+                    <input type="email" class="payment__input" placeholder="Ваш email" required></input>
+                    <button class="payment__pay" type="submit">Купить</button>
+                </form>
+            </div>
+        </div>
+        <header class="header">
+            <a class="name__shop" href="index.html">Книжная лавка</a>
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
+                <li class="menu__list-item"><a class="menu__list-item__link" href="delivery.html">Оплата и доставка</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="article">
+            <section class="payment-delivery">
+                <h1 class="article__title">Удобная оплата и быстрая доставка в «Книжной лавке»</h1>
+                
+                <p class="article__text">В «Книжной лавке» мы делаем всё, чтобы ваши покупки были не только приятными, но и комфортными. Рассказываем, как оплатить заказ и получить книги быстро — даже если вы находитесь в другом городе.</p>
+            
+                <h2 class="article__subtitle">Оплата</h2>
+                <ul class="article__list">
+                    <li class="article__text"><strong>Онлайн-оплата</strong> — банковской картой (Visa, Mastercard, МИР) или через Apple Pay/Google Pay прямо на сайте.</li>
+                </ul>
+                <p class="article__text article__text_small"><i>*Предоплата требуется только для заказов с доставкой в отдаленные регионы.</i></p>
+            
+                <h2 class="article__subtitle">Как мы доставляем книги</h2>
+                <div class="article__delivery-block">
+                    
+                    <h3 class="article__subtitle article__subtitle_small">1. Курьерская доставка</h3>
+                    <p class="article__text">По Москве и области — 1-2 дня, стоимость от 250 ₽.</p>
+                    
+                    <h3 class="article__subtitle article__subtitle_small">2 Почта России</h3>
+                    <p class="article__text">Доставка в любой регион — срок от 5 дней</p>
+                    
+                    <h3 class="article__subtitle article__subtitle_small">3. Экспресс-службы (СДЭК, DHL)</h3>
+                    <p class="article__text">Международная доставка.</p>
+                </div>
+            
+                <h2 class="article__subtitle">Важно знать</h2>
+                <ul class="article__list">
+                    <li class="article__text">После оплаты на вашу почту придёт трекномер.</li>
+                    <li class="article__text">Если книга повреждена при транспортировке — заменим бесплатно в течение 3 дней.</li>
+                    <li class="article__text">Для возврата товара сохраняйте чек и упаковку.</li>
+                </ul>
+            <section class="new">
+                <h2 class="new__title">НАШИ ТОВАРЫ</h2>
+                <ul class="product-list">
+                </ul>
+            </section>
+
+        </main>
+    </body>
+    <script src="script/data.js"></script>
+    <script src="script/randomBook.js"></script>
+    <script src="script/anons.js"></script>
+    <script src="script/card.js"></script>
+</html>

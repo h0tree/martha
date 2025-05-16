@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Книжная лавка</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/article.css">
+    
+    </head>
+    <body class="body">
+        <div class="announcement">
+            <h3 class="announcement__title">УСПЕШНО</h3>
+            <p class="announcement__p">Вы успешно оплатили заказ!</p>
+        </div>
+        <div class="payment">
+            <div class="payment__window">
+                <p class="payment__BefPrice">к оплате</p>
+                <p class="payment__price">3000</p>
+                <p class="payment__subPrice">рублей</p>
+                <div class="payment__string"></div>
+                <form action="" class="payment__form">
+                    <input type="text" class="payment__input" placeholder="Ваш адрес" required></input>
+                    <input type="email" class="payment__input" placeholder="Ваш email" required></input>
+                    <button class="payment__pay" type="submit">Купить</button>
+                </form>
+            </div>
+        </div>
+        <header class="header">
+            <a class="name__shop" href="index.html">Книжная лавка</a>
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
+                <li class="menu__list-item"><a class="menu__list-item__link" href="delivery.html">Оплата и доставка</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="article">
+
+            <section>
+                <h1 class="article__title">Интересные новинки: 5 новых книг, которые привлекли внимание нашей редакции</h1>
+                <p class="article__text">Книжный мир никогда не стоит на месте: каждый год появляются произведения, которые завораживают сюжетами, удивляют смелыми идеями и становятся главными темами для обсуждения. В этом сезоне редакция выделила десять новинок, которые стоит добавить в список для чтения уже сейчас. От психологических триллеров до вдохновляющих нон-фикшн — вот книги, которые не дадут вам уснуть!</p>
+            
+                <h2 class="article__subtitle">1. «Безымянные тени» — Хлоя Гонг (2023)</h2>
+                <p class="article__text">Молодая королева детективов и фэнтези Хлоя Гонг представляет новый триллер в стиле «dark academia». Действие разворачивается в закрытом университете, где студенты начинают исчезать после обнаружения древнего артефакта. Мистика, загадки прошлого и сложные отношения героев — идеально для любителей атмосферных загадок.</p>
+            
+                <h2 class="article__subtitle">2. «Код выживания» — Энди Вейер (2023)</h2>
+                <p class="article__text">Автор бестселлера «Марсианин» возвращается с научно-фантастическим романом о первой колонии на Венере. Когда система жизнеобеспечения дает сбой, героям предстоит не только спасти себя, но и раскрыть тайну планеты. Вейер снова доказывает: наука может быть захватывающей!</p>
+            
+                <h2 class="article__subtitle">3. «Тишина в эпоху шума» — Йохан Харри (2023)</h2>
+                <p class="article__text">Норвежский журналист и автор нашумевшего «Свобода» исследует феномен информационной перегрузки. Как оставаться в гармонии с собой, когда мир кричит со всех экранов? Книга стала бестселлером в Европе благодаря сочетанию философии, нейробиологии и практических советов.</p>
+            
+                <h2 class="article__subtitle">4. «Дочь леса» — Элси Сингер (2024)</h2>
+                <p class="article__text">Дебютный роман, покоривший читателей магическим реализмом. История девочки, которая общается с деревьями, превращается в притчу о экологическом кризисе и силе человеческого духа. Иллюстрации от автора добавляют тексту волшебства.</p>
+            
+                <h2 class="article__subtitle">5. «Ложная память» — Алекс Норт (2023)</h2>
+                <p class="article__text">Автор «Тени» и «Тихого дома» снова пугает до мурашек. Психологический триллер о женщине, которая начинает получать письма от своего «альтер эго» из параллельной реальности. Где заканчивается правда и начинается безумие?</p>
+            
+                <p class="article__text">Мы выбрали новинки, которые ломают шаблоны, говорят о важном без нравоучений и затягивают с первой страницы. Каждая из этих книг — как дверь в новую вселенную. Откройте её!</p>
+            </section>
+            <section class="new">
+                <h2 class="new__title">НАШИ ТОВАРЫ</h2>
+                <ul class="product-list">
+                </ul>
+            </section>
+
+        </main>
+    </body>
+    <script src="script/data.js"></script>
+    <script src="script/randomBook.js"></script>
+    <script src="script/anons.js"></script>
+    <script src="script/card.js"></script>
+</html>

@@ -1,7 +1,9 @@
-let buttonPromo = document.querySelector('.product_actived');
-let priceBook = Number(document.querySelector('.product_price_text').innerHTML);
-let priceBookText = document.querySelector('.product_price_text');
+var buttonPromoActive = document.querySelector('.product_actived');
+let BookPrice = Number(document.querySelector('.product_price_text').innerHTML);
+let BookPriceText = document.querySelector('.product_price_text');
 let newPrice;
+
+let promoValue = false;
 
 let promo = 
 [
@@ -17,22 +19,44 @@ let promo =
 
 
 
-buttonPromo.addEventListener('click', () => {
+buttonPromoActive.addEventListener('click', () => {
     const value = document.querySelector('.product_promo_input').value;
+    if(promoValue == false) {
+        promo.forEach((index, element) => {
+            if(index.namePromo == value) {
+                newPrice = Math.floor(BookPrice - (BookPrice*index.discount));
 
-    promo.forEach((index, element) => {
-        if(index.namePromo == value) {
-            newPrice = Math.floor(priceBook - (priceBook*index.discount));
+                BookPriceText.innerHTML = newPrice;
 
-            priceBookText.innerHTML = newPrice;
-
-            anonsOn('Вы успешно использовали промокод!')
-
-            setTimeout(anonsOff, 3000);
-        }
+                promoValue = true
+                anonsOn_t('Вы успешно использовали промокод!')
+                setTimeout(anonsOff, 3000);
+            }
     })
+    }
+    
+    if(promoValue == true) {
+        anonsOn_t('Вы уже использовали промокод!')
+        setTimeout(anonsOff, 3000);
+    }
 
 
+    function anonsOn_t(text) {
+        let anonsWindow = document.querySelector('.announcement');
+        let anons_p = document.querySelector('.announcement__p');
+
+        if(text != null) {
+            anons_p.innerHTML = text;
+        }
+
+
+        anonsWindow.classList.add('announcement__open');
+    }
+    
+    function anonsOff() {
+        let anonsWindow = document.querySelector('.announcement');
+        anonsWindow.classList.remove('announcement__open');
+    }
 
 });
 

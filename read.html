@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Книжная лавка</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/article.css">
+    
+    </head>
+    <body class="body">
+        <div class="announcement">
+            <h3 class="announcement__title">УСПЕШНО</h3>
+            <p class="announcement__p">Вы успешно оплатили заказ!</p>
+        </div>
+        <div class="payment">
+            <div class="payment__window">
+                <p class="payment__BefPrice">к оплате</p>
+                <p class="payment__price">3000</p>
+                <p class="payment__subPrice">рублей</p>
+                <div class="payment__string"></div>
+                <form action="" class="payment__form">
+                    <input type="text" class="payment__input" placeholder="Ваш адрес" required></input>
+                    <input type="email" class="payment__input" placeholder="Ваш email" required></input>
+                    <button class="payment__pay" type="submit">Купить</button>
+                </form>
+            </div>
+        </div>
+        <header class="header">
+            <a class="name__shop" href="index.html">Книжная лавка</a>
+            <nav class="menu">
+                <ul class="menu__list">
+                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
+                <li class="menu__list-item"><a class="menu__list-item__link" href="delivery.html">Оплата и доставка</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="article">
+
+            <section>
+            <h1 class="article__title">5 книг, которые 100% стоит прочитать</h1>
+            <p class="article__text">Чтение — это не только способ провести время, но и возможность изменить мышление, получить новые знания и эмоции. В мире существует множество выдающихся книг, но некоторые из них оказывают настолько сильное влияние, что их можно назвать обязательными к прочтению.</p>
+            <p class="article__text">Представляем подборку из 10 книг, которые стоит прочитать каждому.</p>
+            <h2 class="article__subtitle" class="article__subtitle">1. "1984" — Джордж Оруэлл</h2>
+            <p class="article__text">Антиутопия, которая остается актуальной спустя десятилетия. Оруэлл рисует мрачный мир тотального контроля, где даже мысли человека подчинены системе. Книга заставляет задуматься о свободе, пропаганде и власти.</p>
+            <h2 class="article__subtitle">2. "Убить пересмешника" — Харпер Ли</h2>
+            <p class="article__text">Сильная история о расизме, справедливости и взрослении в американском Юге. Главная героиня, девочка по имени Скаут, наблюдает за судом над чернокожим мужчиной, несправедливо обвиненным в преступлении.
+            </p>
+            <h2 class="article__subtitle">3. "Мастер и Маргарита" — Михаил Булгаков</h2>
+            <p class="article__text">Мистический роман, сочетающий сатиру, философию и фантастику. История о визите дьявола в Москву, любви, творчестве и вечных вопросах добра и зла.</p>
+            <h2 class="article__subtitle">4. "Преступление и наказание" — Фёдор Достоевский</h2>
+            <p class="article__text">Глубокий психологический роман о студенте Раскольникове, который решается на убийство, чтобы проверить свою теорию о "праве сильной личности". Книга исследует тему морали, раскаяния и искупления.</p>
+            <h2 class="article__subtitle">5. "Маленький принц" — Антуан де Сент-Экзюпери</h2>
+            <p class="article__text">Философская сказка для детей и взрослых. Простым, но пронзительным языком автор говорит о любви, дружбе, ответственности и смысле жизни.</p>
+            <p class="article__text">Эти книги не просто развлекают — они меняют взгляд на мир, заставляют думать и чувствовать. Каждая из них достойна места в вашей библиотеке. Какую бы вы ни выбрали, она точно оставит след в вашей душе.</p>
+            </section>
+            <section class="new">
+                <h2 class="new__title">НАШИ ТОВАРЫ</h2>
+                <ul class="product-list">
+                </ul>
+            </section>
+
+        </main>
+    </body>
+    <script src="script/data.js"></script>
+    <script src="script/randomBook.js"></script>
+    <script src="script/anons.js"></script>
+    <script src="script/card.js"></script>
+</html>

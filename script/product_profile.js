@@ -16,9 +16,7 @@ auther.innerHTML = product[productId].author
 description.innerHTML = product[productId].description
 priceText.innerHTML = price
 
-
-
-img.src = `../imges/book/book${productId}.webp`
+img.src = `imges/book/book${productId}.webp`
 info[0].innerHTML = product[productId].genre
 info[1].innerHTML = product[productId].publisher
 info[2].innerHTML = product[productId].year_publis

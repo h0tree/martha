@@ -1,0 +1,34 @@
+.article__title {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 60px;
+    color: #000000;
+    padding-left: 30px;
+}
+
+.article__subtitle {
+    font-family: 'Unbounded';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: #000000;
+    padding-left: 30px;
+}
+
+.article__text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    padding-left: 30px;
+    width: 50%;
+}
+
+.article {
+    background-color: #FCFCFC;
+}

@@ -151,18 +151,22 @@ product.forEach((element, index) => {
 
         form.addEventListener('submit', (event) => {
             event.preventDefault(); 
-            anonsOn('Реквизиты для оплаты отправлены на вашу почту. После оплаты мы вышлем данные для отслеживания вашей посылки.');
+            anonsOn();
             setTimeout(anonsOff, 3000);
             payment.classList.remove('payment--open')
         });
         
         function anonsOn(text) {
             let anonsWindow = document.querySelector('.announcement');
-            let anonsText = text;
             let anons_p = document.querySelector('.announcement__p');
-        
+
+            if(text != null) {
+                anons_p.innerHTML = anonsText;
+                let anonsText = text;
+            }
+
+
             anonsWindow.classList.add('announcement__open');
-            anons_p.innerHTML = anonsText;
         }
         
         function anonsOff() {

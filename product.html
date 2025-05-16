@@ -11,13 +11,25 @@
     
     </head>
     <body>
+        <div class="payment">
+            <div class="payment__window">
+                <p class="payment__BefPrice">к оплате</p>
+                <p class="payment__price">3000</p>
+                <p class="payment__subPrice">рублей</p>
+                <div class="payment__string"></div>
+                <form action="" class="payment__form">
+                    <input type="text" class="payment__input" placeholder="Ваш адрес" required></input>
+                    <input type="email" class="payment__input" placeholder="Ваш email" required></input>
+                    <button class="payment__pay" type="submit">Перейти к оплате</button>
+                </form>
+            </div>
+        </div>
         <header class="header">
             <a class="name__shop" href="index.html">Книжная лавка</a>
             <nav class="menu">
                 <ul class="menu__list">
                     <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
-                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Подобрать книгу</a></li>
-                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Оплата и доставка</a></li>
+                <li class="menu__list-item"><a class="menu__list-item__link" href="delivery.html">Оплата и доставка</a></li>
                 </ul>
             </nav>
         </header>
@@ -64,5 +76,6 @@
     <script src="script/randomBook.js"></script>
     <script src="script/product_profile.js"></script>
     <script src="script/anons.js"></script>
+    <script src="script/payment.js"></script>
     <script src="script/promo.js"></script>
 </html>

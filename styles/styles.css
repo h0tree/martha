@@ -124,6 +124,8 @@ body {
     display: flex;
     list-style-type: none;
     column-gap: 60px;
+    row-gap: 30px;
+    flex-wrap: wrap;
 }
 
 .product-list-item {
