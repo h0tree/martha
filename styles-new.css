@@ -271,6 +271,26 @@ body {
     }
 }
 
+@keyframes burger-menu {
+    from {
+        transform: translateY(-100px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes burger-menu-scale {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
 /** Мобильная версия **/
 
 @media (max-width: 1200px) {
@@ -286,7 +306,9 @@ body {
         background: #FAFAFA;
         right: 10%;
         z-index: 10; 
-        border: #787878 solid 1px
+        border: #787878 solid 1px;
+        animation-name: burger-menu;
+        animation-duration: 0.4s;
         
     }
 
@@ -300,6 +322,7 @@ body {
         opacity: 0;
         pointer-events: none;
         padding: 0;
+        color: #0A183B;
     }
 
     .menu-button {
@@ -321,5 +344,77 @@ body {
         height: 2px;
         background-color: #000000;
         border-radius: 15%;
+    }
+
+    .header-active {
+        flex-direction: column;
+    }
+
+    .menu-button-active {
+        width: 4em;
+        height: 4em;
+        display: flex;
+        animation-name: burger-menu-scale;
+        animation-duration: 0.5s;
+    }
+
+    .menu-button-arrow-active {
+        background-color: #FFFFFF;
+    }
+
+    .menu-button-arrow-active:last-child {
+        transform: rotate(45deg);
+    }
+
+    .menu-button-arrow-active:first-child {
+        transform: rotate(-45deg);
+        margin: -12px;
+    }
+
+    .header-list-item-active {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+
+    }
+
+    .header-listmenu {
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .header-listmenu-active > * , .header-listmenu-active {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        padding: 0;
+        z-index: 10; 
+        color: #DCDCDC;
+    }
+
+    .header-listmenu-active:first-of-type {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .header-listmenu-active > *:last-child {
+        padding-bottom: 35px;
+    }
+
+    .product-list-item:hover {
+        filter: none
+    }
+    .product-list-item:checked {
+        filter: none
+    }
+
+    .header-burger {
+        margin-top: 0;
+        width: 100%;
+        height: auto;
+        background-color: #0A183B;
+        left: 0;
+        border-radius: 0;
+        flex-direction: column;
     }
 }
