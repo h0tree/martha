@@ -1,71 +1,58 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <title>Книжная лавка</title>
+    <title>Книжная лавка - интеренет магазин книг</title>
     <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link href="styles-new.css" rel="stylesheet">
 
 </head>
-<body class="body">
-    <div class="announcement">
-        <h3 class="announcement__title">УСПЕШНО</h3>
-        <p class="announcement__p">Вы успешно оплатили заказ!</p>
-    </div>
-    <div class="payment">
-        <div class="payment__window">
-            <p class="payment__BefPrice">к оплате</p>
-            <p class="payment__price">3000</p>
-            <p class="payment__subPrice">рублей</p>
-            <div class="payment__string"></div>
-            <form action="" class="payment__form">
-                <input type="text" class="payment__input" placeholder="Ваш адрес" required></input>
-                <input type="email" class="payment__input" placeholder="Ваш email" required></input>
-                <button class="payment__pay" type="submit">Перейти к оплате</button>
-            </form>
+<body>
+    <header class="header">
+        <h1 class="header-title">Книжная лавка</h1>
+        <nav class="header-listmenu">
+            <a href="#" class="header-listmenu-text">Каталог</a>
+            <a href="#" class="header-listmenu-text">Случайная книга</a>
+            <a href="#" class="header-listmenu-text">Оплата и доставка</a>
+        </nav>
+        <img src="imges/profile.svg" alt="Иконка для входа в аккаунт">
+        <div class="menu-button">
+            <span class="menu-button-arrow"> </span>
+            <span class="menu-button-arrow"> </span>
+            <span class="menu-button-arrow"> </span>
+        </div>
+    </header>
+    <div class="banner">
+        <!-- Slider main container -->
+        <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
+            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
+            ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
         </div>
     </div>
-    <header class="header">
-        <a class="name__shop" href="index.html">Книжная лавка</a>
-        <nav class="menu">
-            <ul class="menu__list">
-                <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
-                <li class="menu__list-item"><a class="menu__list-item__link" href="delivery.html">Оплата и доставка</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main class="content">
-        <section class="main">
-            <div class="banner banner-martha">
-                <button class="arrrow arrrow-left" disabled></button>
-                <button class="arrrow arrrow-right"></button>
-            </div>
-            <div class="recommendation">
-                <div class="recommend-card">
-                    <h4 class="recommend-card__title">Лучшие книги</h4>
-                    <p class="recommend-card__subtitle">Книги, которые, по мнению редакции, обязан прочесть каждый.</p>
-                </div>
-                <div class="recommend-card">
-                    <h4 class="recommend-card__title">Интересные новинки</h4>
-                    <p class="recommend-card__subtitle">Новые книги, которые привлекли внимание нашей редакции.</p>
-                </div>
-            </div>
-        </section>
-        <section class="new">
-            <h2 class="new__title">НАШИ ТОВАРЫ</h2>
+    <main class="catalog">
+        <h1 class="catalog-title">ВЫБОР РЕДАКЦИИ</h1>
             <ul class="product-list">
+
             </ul>
-        </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="script/data.js"></script>
-    <script src="script/randomBook.js"></script>
-    <script src="script/payment.js"></script>
-    <script src="script/card.js"></script>
+    <script src="script/catalog.js"></script>
     <script src="script/banner.js"></script>
-    <script src="script/recom.js"></script>
 </body>
 </html>
