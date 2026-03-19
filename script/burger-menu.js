@@ -4,7 +4,7 @@ let array = document.querySelectorAll(".menu-button-arrow")
 let nav = document.querySelector(".header-listmenu")
 let title = document.querySelector(".header-title")
 
-button.addEventListener("click", () => {
+button.addEventListener("touchstart", () => {
     header.classList.toggle("header-burger")
     button.classList.toggle("menu-button-active")
     array.forEach(element => {
