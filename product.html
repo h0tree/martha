@@ -99,7 +99,10 @@
     <script src="script/payment.js"></script>
     <script src="script/promo.js"></script>
     <script>
-
+  const client = window.supabase.createClient(
+    "https://cejwvftwqbsynomkodvy.supabase.co",
+    "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
+  );
   // Привязываем кнопку "Личный кабинет"
   document.getElementById("profile-btn").onclick = async () => {
     const { data } = await client.auth.getUser();
