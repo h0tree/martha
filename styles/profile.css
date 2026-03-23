@@ -132,3 +132,39 @@ body {
         grid-row: auto;
     }
 }
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: transparent;
+    color: #FF4B4B; /* Цвет предупреждения */
+    border: 2px solid #FF4B4B;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.logout-button:hover {
+    background-color: #FF4B4B;
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
+    transform: translateY(-2px);
+}
+
+.logout-button:active {
+    transform: translateY(0);
+}
+
+/* Стили для иконки (если добавите её в HTML) */
+.logout-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor; /* Иконка будет менять цвет вместе с текстом */
+}

@@ -424,7 +424,10 @@ body {
         padding: 0;
         z-index: 10; 
         color: #DCDCDC;
-    }
+        pointer-events: auto;
+        }
+
+    
 
     .header-listmenu-active:first-of-type {
         margin-top: 30px;
@@ -450,6 +453,7 @@ body {
         left: 0;
         border-radius: 0;
         flex-direction: column;
+        pointer-events: auto !important;
     }
 }
 

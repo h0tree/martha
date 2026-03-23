@@ -7,15 +7,6 @@ body {
     background-color: #FCFCFC;
 }
 
-.header {
-    height: 70px;
-    background-color: #0A183C;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 85px;
-}
-
 .name__shop {
     font-family: 'Unbounded';
     font-style: normal;
