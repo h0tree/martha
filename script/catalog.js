@@ -116,7 +116,7 @@ function renderBooks(books) {
             });
 
         card.addEventListener('click', () => {
-            const productID = index
+            const productID = element.id
             window.location.href = `product.html?id=${productID}`;
         })
 
