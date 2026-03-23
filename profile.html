@@ -49,46 +49,66 @@
     </div>
 
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script>
-        const client = window.supabase.createClient(
-            "https://cejwvftwqbsynomkodvy.supabase.co",
-            "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
-        );
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+  const client = window.supabase.createClient(
+    "https://cejwvftwqbsynomkodvy.supabase.co",
+    "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
+  );
 
-        async function loadProfile() {
-            const { data: userData } = await client.auth.getUser();
+  // Создаём профиль пользователя, если его ещё нет
+  async function createUserProfileIfNotExists(userId) {
+    const { data, error } = await client
+      .from('users_profile')
+      .insert([{ id: userId }])
+      .select();
 
-            if (!userData.user) {
-                window.location.href = "login.html";
-                return;
-            }
+    if (error && !error.message.includes("duplicate key")) {
+      console.error("Ошибка создания профиля:", error);
+    }
+  }
 
-            const userId = userData.user.id;
+  // Загружаем профиль
+  async function loadProfile() {
+    const { data: userData } = await client.auth.getUser();
 
-            const { data, error } = await client
-                .from('users_profile')
-                .select('*')
-                .eq('id', userId)
-                .single();
+    if (!userData.user) {
+      window.location.href = "login.html"; // если не авторизован
+      return;
+    }
 
-            if (error) {
-                console.error("Ошибка загрузки профиля:", error.message);
-                return;
-            }
+    const userId = userData.user.id;
 
-            document.getElementById("user-email").textContent = userData.user.email;
-            document.getElementById("user-created").textContent = new Date(data.created_at).toLocaleDateString();
-            document.getElementById("user-orders").textContent = data.orders;
-            document.getElementById("user-spent").textContent = data.spent + "р";
-            document.getElementById("user-points").textContent = data.points;
-        }
+    // Создаём профиль, если его нет
+    await createUserProfileIfNotExists(userId);
 
-        document.getElementById("logout").onclick = async () => {
-            await client.auth.signOut();
-            window.location.href = "login.html";
-        };
+    // Загружаем данные профиля
+    const { data, error } = await client
+      .from("users_profile")
+      .select("*")
+      .eq("id", userId)
+      .single();
 
-        loadProfile();
-    </script>
+    if (error) {
+      console.error("Ошибка загрузки профиля:", error.message);
+      return;
+    }
+
+    // Заполняем элементы страницы
+    document.getElementById("user-email").textContent = userData.user.email;
+    document.getElementById("user-created").textContent = new Date(data.created_at).toLocaleDateString();
+    document.getElementById("user-orders").textContent = data.orders;
+    document.getElementById("user-spent").textContent = data.spent + "р";
+    document.getElementById("user-points").textContent = data.points;
+  }
+
+  // Кнопка выхода
+  document.getElementById("logout").onclick = async () => {
+    await client.auth.signOut();
+    window.location.href = "login.html";
+  };
+
+  loadProfile();
+</script>
 </body>
 </html>

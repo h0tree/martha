@@ -115,7 +115,6 @@ button:active {
 }
     </style>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
   // Инициализация клиента Supabase
   const client = window.supabase.createClient(
@@ -143,10 +142,31 @@ button:active {
     alert("Письмо отправлено! Проверьте почту и кликните ссылку для входа.");
   }
 
+  // Создаём профиль пользователя, если его ещё нет
+  async function createUserProfileIfNotExists(userId) {
+    const { data, error } = await client
+      .from('users_profile')
+      .insert([{ id: userId }])
+      .select();
+
+    if (error) {
+      // Если профиль уже есть — игнорируем дубликаты
+      if (!error.message.includes('duplicate key')) {
+        console.error('Ошибка создания профиля:', error);
+      }
+    } else {
+      console.log('Профиль создан:', data);
+    }
+  }
+
   // Проверка текущего пользователя при загрузке страницы
   async function checkUser() {
     const { data } = await client.auth.getUser();
+
     if (data.user) {
+      // Создаём профиль, если его ещё нет
+      await createUserProfileIfNotExists(data.user.id);
+
       console.log("Уже вошёл:", data.user.email);
       // Меняем содержимое формы на приветствие
       document.querySelector(".auth-container").innerHTML = `
@@ -173,7 +193,6 @@ button:active {
 
   // Проверяем пользователя при загрузке
   checkUser();
-
 
   // Привязываем кнопку "Личный кабинет"
   document.getElementById("profile-btn").onclick = async () => {
