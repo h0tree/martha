@@ -49,7 +49,7 @@ async function loadBooks() {
     return;
   }
 
-  console.log(data);
+
   renderBooks(data);
 }
 
@@ -119,7 +119,7 @@ function renderBooks(books) {
             const productID = element.id
             window.location.href = `product.html?id=${productID}`;
         })
-
+        console.log(element.id)
 
     });
 }

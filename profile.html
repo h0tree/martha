@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Книжная лавка - интеренет магазин книг</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Личный кабинет</title>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
-
-    
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <link href="styles/styles-new.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles/profile.css">
 </head>
 <body>
-
     <header class="header">
         <h1 class="header-title">Книжная лавка</h1>
         <nav class="header-listmenu">
@@ -24,44 +18,45 @@
             <a href="#" class="header-listmenu-text">Случайная книга</a>
             <a href="#" class="header-listmenu-text">Оплата и доставка</a>
         </nav>
-        <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg" id="profile-btn">
+        <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M23.2063 20.3956C24.2127 20.3965 25.1777 20.8 25.889 21.5173C26.6004 22.2347 27 23.2073 27 24.2213V25.199C27 26.7191 26.46 28.1899 25.4812 29.3445C22.8316 32.4612 18.8033 34 13.4941 34C8.18489 34 4.15826 32.4612 1.51547 29.3411C0.537685 28.1871 0.000349755 26.7197 0 25.2024V24.2196C0.000447222 23.2056 0.400465 22.2332 1.11215 21.5161C1.82383 20.7991 2.78895 20.396 3.79542 20.3956H23.2063ZM23.2063 22.9461H3.79374C3.45805 22.9461 3.13611 23.0804 2.89875 23.3196C2.66138 23.5588 2.52803 23.8831 2.52803 24.2213V25.2024C2.52803 26.1121 2.85205 26.9929 3.43934 27.6849C5.55391 30.1827 8.87343 31.4495 13.4924 31.4495C18.1148 31.4495 21.4343 30.1827 23.5556 27.6866C24.144 26.9934 24.4672 26.1112 24.4669 25.199V24.2196C24.4665 23.8823 24.3334 23.5589 24.0968 23.3202C23.8602 23.0815 23.5411 22.947 23.2063 22.9461ZM13.4941 0C14.6022 -1.66365e-08 15.6994 0.219903 16.7232 0.647153C17.7469 1.0744 18.6771 1.70063 19.4607 2.49009C20.2442 3.27955 20.8658 4.21677 21.2898 5.24824C21.7139 6.27971 21.9321 7.38524 21.9321 8.5017C21.9321 9.61816 21.7139 10.7237 21.2898 11.7552C20.8658 12.7866 20.2442 13.7239 19.4607 14.5133C18.6771 15.3028 17.7469 15.929 16.7232 16.3562C15.6994 16.7835 14.6022 17.0034 13.4941 17.0034C11.2562 17.0034 9.10994 16.1077 7.52751 14.5133C5.94507 12.9189 5.05607 10.7565 5.05607 8.5017C5.05607 6.24691 5.94507 4.08447 7.52751 2.49009C9.10994 0.895712 11.2562 0 13.4941 0ZM13.4941 2.55051C12.7184 2.55051 11.9504 2.70444 11.2337 3.00352C10.5171 3.30259 9.86596 3.74095 9.31748 4.29357C8.769 4.84619 8.33392 5.50225 8.03709 6.22428C7.74025 6.94631 7.58747 7.72018 7.58747 8.5017C7.58747 9.28322 7.74025 10.0571 8.03709 10.7791C8.33392 11.5012 8.769 12.1572 9.31748 12.7098C9.86596 13.2624 10.5171 13.7008 11.2337 13.9999C11.9504 14.299 12.7184 14.4529 13.4941 14.4529C15.0606 14.4529 16.563 13.8259 17.6707 12.7098C18.7784 11.5938 19.4007 10.0801 19.4007 8.5017C19.4007 6.92335 18.7784 5.40964 17.6707 4.29357C16.563 3.17751 15.0606 2.55051 13.4941 2.55051Z" fill="#0A183B"/>
         </svg>
+
         <div class="menu-button">
             <span class="menu-button-arrow"> </span>
             <span class="menu-button-arrow"> </span>
         </div>
     </header>
-         <div id="loader">
-            <div class="spinner"></div>
+    <div class="container">
+        <div class="card profile-card">
+            <div class="profile-header">
+                <div class="avatar-placeholder"></div>
+                <div class="email">hotreeyt2@gmail.com</div>
+            </div>
+            <div class="profile-info">
+                <p>Дата регистрации: 10.01.2025</p>
+                <p>Всего заказов: 10</p>
+                <p>Всего потрачено денег: 100р</p>
+            </div>
         </div>
-    <div class="banner">
-        <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
-            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
+
+        <div class="card last-order-card">
+            <h2>ПОСЛЕДНИЙ ЗАКАЗ</h2>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+
+        <div class="card points-card">
+            <div class="points-icon">
+                <svg width="103" height="103" viewBox="0 0 103 103" fill="none" xmlns="http://www.w3.org/2000/svg" id="profile-btn">
+                    <path d="M35.1665 62.3889C35.1665 71.4103 49.7903 78.7222 67.8332 78.7222C85.8761 78.7222 100.5 71.4103 100.5 62.3889C100.5 53.3674 85.8761 46.0556 67.8332 46.0556C49.7903 46.0556 35.1665 53.3674 35.1665 62.3889Z" stroke="#D9D9D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M35.1667 62.3889V84.1667C35.1667 93.1827 49.7904 100.5 67.8333 100.5C85.8762 100.5 100.5 93.1827 100.5 84.1667V62.3889M2.5 18.8333C2.5 24.6698 8.72844 30.0598 18.8333 32.978C28.9382 35.8962 41.3951 35.8962 51.5 32.978C61.6049 30.0598 67.8333 24.6698 67.8333 18.8333C67.8333 12.9969 61.6049 7.60689 51.5 4.68867C41.3951 1.77044 28.9382 1.77044 18.8333 4.68867C8.72844 7.60689 2.5 12.9969 2.5 18.8333Z" stroke="#D9D9D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2.5 18.8333V73.2778C2.5 78.1124 6.70311 81.1722 13.3889 84.1667" stroke="#D9D9D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2.5 46.0556C2.5 50.8902 6.70311 53.95 13.3889 56.9444" stroke="#D9D9D9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg> 
+            </div>
+            <p>Баллов:</p>
+            <div class="points-value">200</div>
         </div>
     </div>
-    <main class="catalog">
-        <h1 class="catalog-title">ВЫБОР РЕДАКЦИИ</h1>
-            <ul class="product-list">
-
-            </ul>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-    <script src="script/loading.js"></script>
-
-    <script src="script/catalog.js"></script>
-    <script src="script/banner.js"></script>
-    <script src="script/burger-menu.js"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
 
   // Привязываем кнопку "Личный кабинет"
