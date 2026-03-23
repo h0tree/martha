@@ -3,14 +3,24 @@
     <head>
         <title>Книжная лавка</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/styles.css">
-    
+        <link href="styles/styles-new.css" rel="stylesheet">
+        <link href="styles/profile_product.css" rel="stylesheet">
+
+
     </head>
     <body>
+        <div id="loader">
+            <div class="spinner"></div>
+        </div>
         <div class="payment">
             <div class="payment__window">
                 <p class="payment__BefPrice">к оплате</p>
@@ -24,28 +34,32 @@
                 </form>
             </div>
         </div>
-        <header class="header">
-            <a class="name__shop" href="index.html">Книжная лавка</a>
-            <nav class="menu">
-                <ul class="menu__list">
-                    <li class="menu__list-item"><a class="menu__list-item__link" href="#">Случайная книга</a></li>
-                <li class="menu__list-item"><a class="menu__list-item__link" href="delivery.html">Оплата и доставка</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header class="header">
+        <h1 class="header-title">Книжная лавка</h1>
+        <nav class="header-listmenu">
+            <a href="#" class="header-listmenu-text">Каталог</a>
+            <a href="#" class="header-listmenu-text">Случайная книга</a>
+            <a href="#" class="header-listmenu-text">Оплата и доставка</a>
+        </nav>
+        <img src="imges/profile.svg" alt="Иконка для входа в аккаунт">
+        <div class="menu-button">
+            <span class="menu-button-arrow"> </span>
+            <span class="menu-button-arrow"> </span>
+        </div>
+    </header>
         <main class="main__product">
             <div class="product__content">
                 <section class="product_preview">
                     <div class="preview__top">
-                        <h1 class="preview_title">Хочу съесть твою поджелудочную</h1>
-                        <p class="preview_auther">Автор: <span class="auther">Ёру синобу</span></p>
+                        <h1 class="preview_title"> </h1>
+                        <p class="preview_auther">Автор: <span class="auther"> </span></p>
                     </div>
-                    <img src="imges/book/book0.webp" class="preview_imges">
+                    <img src="" class="preview_imges">
                 </section>
                 <section class="preview__description">
                     <div class="preview__description-content">
                         <h2 class="description-title">Описание</h2>
-                        <p class="description-p description-p__product">— Просто уточняю — именно мою?<br>— Чью же ещё?<br>Однажды, когда я учился в старшей школе, я подобрал в больнице одну книгу. Она называлась «Книга жизни с болезнью». Это был дневник, который тайно вела моя одноклассница Сакура Ямаути. И в нём она написала, что из-за заболевания поджелудочной железы жить ей осталось недолго…</p>
+                        <p class="description-p description-p__product"> </p>
                     </div>
                 </section>
                 <section class="product__information">
@@ -57,13 +71,13 @@
                     </div>
                 </section>
                 <section class="product_promo">
-                    <input type="text" class="product_promo_input" placeholder="Промокод"></button>
+                    <input type="text" class="product_promo_input" placeholder="Промокод"></input>
                     <button class="product_actived">Применить</button>
                     <button class="product_buy"></button>
                 </section>
                 <section class="product_price">
                     <p class="product_price_title">Итоговая цена:</p>
-                    <p class="product_price_text">2000</p>
+                    <p class="product_price_text"> </p>
                 </section>
             </div>
         </main>
@@ -72,7 +86,11 @@
             <p class="announcement__p">Вы успешно оплатили заказ!</p>
         </div>
     </body>
-    <script src="script/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script/burger-menu.js"></script>
+    <script src="script/loading.js"></script>
+
     <script src="script/randomBook.js"></script>
     <script src="script/product_profile.js"></script>
     <script src="script/anons.js"></script>

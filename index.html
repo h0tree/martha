@@ -10,12 +10,13 @@
 
 
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
-    <link href="styles-new.css" rel="stylesheet">
+    <link href="styles/styles-new.css" rel="stylesheet">
 
 </head>
 <body>
+
     <header class="header">
         <h1 class="header-title">Книжная лавка</h1>
         <nav class="header-listmenu">
@@ -29,20 +30,16 @@
             <span class="menu-button-arrow"> </span>
         </div>
     </header>
-    <div class="banner">
-        <!-- Slider main container -->
-        <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
-            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
-            ...
+         <div id="loader">
+            <div class="spinner"></div>
         </div>
-        <!-- If we need pagination -->
+    <div class="banner">
+        <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
+            <div class="swiper-slide"><img src="imges/banner/banner.png" alt="" width="1350" height="600"></div>
+        </div>
         <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
         </div>
@@ -56,7 +53,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="script/data.js"></script>
+
+    <script src="script/loading.js"></script>
+
     <script src="script/catalog.js"></script>
     <script src="script/banner.js"></script>
     <script src="script/burger-menu.js"></script>

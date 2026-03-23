@@ -9,15 +9,50 @@ let img = document.querySelector('.preview_imges');
 
 let info = document.querySelectorAll('.informationText');
 
-let price = product[productId].price
+let price;
 
-title.innerHTML = product[productId].title
-auther.innerHTML = product[productId].author
-description.innerHTML = product[productId].description
-priceText.innerHTML = price
+const client = window.supabase.createClient(
+  "https://cejwvftwqbsynomkodvy.supabase.co",
+  "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
+);
 
-img.src = `imges/book/book${productId}.webp`
-info[0].innerHTML = product[productId].genre
-info[1].innerHTML = product[productId].publisher
-info[2].innerHTML = product[productId].year_publis
-info[3].innerHTML = product[productId].age_limit
+
+async function loadBooksProfile() {
+  const { data, error } = await client
+    .from('books')
+    .select('*');
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+
+  renderProfile(data);
+}
+
+
+function renderProfile(books) {
+
+    books.forEach(element => {
+        
+        if (element.id == productId) {
+            title.innerHTML = element.title
+            auther.innerHTML = element.author
+            description.innerHTML = element.description
+            priceText.innerHTML = element.price
+
+            price = element.price
+
+            img.src = `imges/book/book${element.id}.webp`
+            info[0].innerHTML = element.genre
+            info[1].innerHTML = element.publisher
+            info[2].innerHTML = element.year_publis
+            info[3].innerHTML = element.age_limit
+        }
+    });
+    return price;
+}
+price = loadBooksProfile()
+
+
