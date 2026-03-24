@@ -129,10 +129,6 @@ body {
     display: none;
 }
 
-.payment {
-    display: none;
-}
-
 .swiper {
     width: 100%;
     height: 100%;
@@ -328,6 +324,8 @@ body {
 /** Мобильная версия **/
 
 @media (max-width: 1200px) {
+
+
     .catalog, .banner {
         width: 90%;
     }
@@ -435,7 +433,7 @@ body {
     }
 
     .header-listmenu-active > *:last-child {
-        padding-bottom: 35px;
+        padding-bottom: 0;
     }
 
     .product-list-item:hover {
@@ -454,6 +452,17 @@ body {
         border-radius: 0;
         flex-direction: column;
         pointer-events: auto !important;
+    }
+
+    .login-active {
+        width: auto;
+        height: auto;
+        opacity: 1;
+        pointer-events: all;
+        background-color: #F9F9F9;
+        padding: 15px 20px;
+        border-radius: 20px;
+        margin: 23px;
     }
 }
 
