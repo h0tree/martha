@@ -1,3 +1,35 @@
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #444;
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -74,6 +106,7 @@ body {
 .catalog {
     width: 70%;
     margin: auto;
+    min-height: 1000px;
     background-color: #FAFAFA;
     border-radius: 20px;
     margin-bottom: 50px;
@@ -93,10 +126,6 @@ body {
 }
 
 .announcement {
-    display: none;
-}
-
-.payment {
     display: none;
 }
 
@@ -185,7 +214,7 @@ body {
 
 .product-list-item__buy {
     background-color: #1854ED;
-    background-image: url(imges/icon_buy.svg);
+    background-image: url(../imges/icon_buy.svg);
     background-position: center;
     background-size: 18px;
     background-repeat: no-repeat;
@@ -295,6 +324,8 @@ body {
 /** Мобильная версия **/
 
 @media (max-width: 1200px) {
+
+
     .catalog, .banner {
         width: 90%;
     }
@@ -305,7 +336,7 @@ body {
         height: 4em;
         pointer-events: none;
         background: #FAFAFA;
-        right: 10%;
+        right: 5%;
         z-index: 10; 
         border: #787878 solid 1px;
         animation-name: burger-menu;
@@ -391,7 +422,10 @@ body {
         padding: 0;
         z-index: 10; 
         color: #DCDCDC;
-    }
+        pointer-events: auto;
+        }
+
+    
 
     .header-listmenu-active:first-of-type {
         margin-top: 30px;
@@ -399,7 +433,7 @@ body {
     }
 
     .header-listmenu-active > *:last-child {
-        padding-bottom: 35px;
+        padding-bottom: 0;
     }
 
     .product-list-item:hover {
@@ -417,5 +451,49 @@ body {
         left: 0;
         border-radius: 0;
         flex-direction: column;
+        pointer-events: auto !important;
+    }
+
+    .login-active {
+        width: auto;
+        height: auto;
+        opacity: 1;
+        pointer-events: all;
+        background-color: #F9F9F9;
+        padding: 15px 20px;
+        border-radius: 20px;
+        margin: 23px;
+    }
+}
+
+/*               */
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #444;
+    border-top: 5px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
     }
 }
