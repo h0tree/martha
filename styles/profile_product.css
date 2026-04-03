@@ -23,6 +23,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    text-align: center;
 }
 
 .payment__details span {
@@ -87,7 +88,7 @@
         padding-bottom: 30px;
     }
 
-    .payment {
-    width: 100%;
+    .payment__window {
+    width: 80%;
   }
 }
