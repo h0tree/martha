@@ -166,30 +166,23 @@ async function sendMagicLink(email) {
   }
 
   // Проверка текущего пользователя при загрузке страницы
-  async function checkUser() {
-    const { data } = await client.auth.getUser();
+async function checkUser() {
+  const { data: { user } } = await client.auth.getUser();
 
-    if (data.user) {
-      // Создаём профиль, если его ещё нет
-      await createUserProfileIfNotExists(data.user.id);
-
-      console.log("Уже вошёл:", data.user.email);
-      // Меняем содержимое формы на приветствие
-      document.querySelector(".auth-container").innerHTML = `
-        <h2>Привет, ${data.user.email}!</h2>
-        <button id="logout">Выйти</button>
-      `;
-
-      // Кнопка выхода
-      document.getElementById("logout").onclick = async () => {
-        await client.auth.signOut();
-        alert("Вы вышли");
-        location.reload(); // обновляем страницу после выхода
-      };
-    } else {
-      console.log("Не авторизован");
-    }
+  if (user) {
+    console.log("Уже вошёл:", user.email);
+    // Просто показываем интерфейс, профиль уже создан триггером!
+    document.querySelector(".auth-container").innerHTML = `
+      <h2>Привет, ${user.email}!</h2>
+      <button id="logout">Выйти</button>
+    `;
+    
+    document.getElementById("logout").onclick = async () => {
+      await client.auth.signOut();
+      location.reload();
+    };
   }
+}
 
   // Привязка кнопки "Получить код"
   document.getElementById("send").onclick = () => {
