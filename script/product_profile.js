@@ -82,7 +82,7 @@ async function init() {
 init();
 
 
-// 🎯 ПРОМОКОД
+// ПРОМОКОД
 buttonPromoActive.addEventListener('click', () => {
     const value = document.querySelector('.product_promo_input').value;
 
@@ -133,7 +133,7 @@ form.addEventListener('submit', (event) => {
 });
 
 
-// 🔔 уведомления
+// уведомления
 function showAnons(text) {
     const anonsWindow = document.querySelector('.announcement');
     const anonsText = document.querySelector('.announcement__p');
@@ -146,100 +146,78 @@ function showAnons(text) {
     }, 3000);
 }
 
-// ... (ваш существующий код загрузки книги остается без изменений) ...
+// Находим новые элементы подтверждения
+const confirmTitle = document.getElementById('confirm-title');
+const confirmAddress = document.getElementById('confirm-address');
 
-// Находим новые элементы формы для автозаполнения
-const addressInput = document.querySelector('.payment__input[placeholder="Ваш адрес"]');
-const emailInput = document.querySelector('.payment__input[placeholder="Ваш email"]');
-
-// 1. ПРОВЕРКА АВТОРИЗАЦИИ ПРИ НАЖАТИИ "КУПИТЬ"
+// 1. НАЖАТИЕ НА КНОПКУ КОРЗИНЫ (КУПИТЬ)
 buttonPay.addEventListener('click', async () => {
+    // Проверяем авторизацию
     const { data: { user } } = await client.auth.getUser();
 
     if (!user) {
-        // Если не вошел — на логин
-        showAnons('Сначала войдите в систему!');
-        setTimeout(() => {
-            window.location.href = "login.html";
-        }, 1500);
+        showAnons('Пожалуйста, войдите в аккаунт');
+        setTimeout(() => { window.location.href = "login.html"; }, 1500);
         return;
     }
 
-    // Если вошел — открываем модалку и подтягиваем данные
-    payment.classList.add('payment--open');
-    emailInput.value = user.email;
-    emailInput.readOnly = true; // Запрещаем менять email, он привязан к аккаунту
-
-    // Пытаемся подтянуть адрес из профиля, чтобы пользователю не вводить его каждый раз
-    const { data: profile } = await client
+    // Загружаем профиль, чтобы проверить адрес
+    const { data: profile, error } = await client
         .from('users_profile')
-        .select('address')
+        .select('address, total_orders, total_spent')
         .eq('id', user.id)
         .single();
-    
-    if (profile && profile.address) {
-        addressInput.value = profile.address;
+
+    if (error || !profile.address || profile.address.trim() === "") {
+        showAnons('Сначала укажите адрес в профиле!');
+        setTimeout(() => { window.location.href = "profile.html"; }, 1500);
+        return;
     }
+
+    // Если адрес есть, открываем окно подтверждения
+    payment.classList.add('payment--open');
+    confirmTitle.textContent = title.innerText;
+    confirmAddress.textContent = profile.address;
+    paymentPrice.innerHTML = BookPrice; // Обновляем цену в модалке
 });
 
-// 2. ОБРАБОТКА ОПЛАТЫ (БЕКЕНД ЗАКАЗА)
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    
-    const { data: { user } } = await client.auth.getUser();
-    if (!user) return;
-
-    const btn = form.querySelector('.payment__pay');
-    btn.disabled = true;
-    btn.textContent = "Обработка...";
-
-    try {
-        // Получаем текущие данные профиля для инкремента
-        const { data: currentProfile, error: fetchError } = await client
-            .from('users_profile')
-            .select('total_orders, total_spent')
-            .eq('id', user.id)
-            .single();
-
-        if (fetchError) throw fetchError;
-
-        // Рассчитываем новые значения
-        const newTotalOrders = (currentProfile.total_orders || 0) + 1;
-        const newTotalSpent = (currentProfile.total_spent || 0) + BookPrice;
-        const currentBookTitle = title.innerText; // Название книги из заголовка страницы
-
-        // ОБНОВЛЯЕМ БАЗУ ДАННЫХ
-        const { error: updateError } = await client
-            .from('users_profile')
-            .update({
-                total_orders: newTotalOrders,
-                total_spent: newTotalSpent,
-                last_order: currentBookTitle,
-                address: addressInput.value // Сохраняем адрес, если он изменился
-            })
-            .eq('id', user.id);
-
-        if (updateError) throw updateError;
-
-        // Если всё успешно
-        payment.classList.remove('payment--open');
-        showAnons('Заказ успешно оплачен!');
+    // 2. ОТПРАВКА ФОРМЫ (ФИНАЛЬНАЯ ОПЛАТА)
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
         
-        // (Опционально) Можно добавить редирект в профиль через пару секунд
-        /* setTimeout(() => { window.location.href = "profile.html"; }, 2000); */
+        const { data: { user } } = await client.auth.getUser();
+        const btn = form.querySelector('.payment__pay');
+        
+        btn.disabled = true;
+        btn.textContent = "Списание...";
 
-    } catch (err) {
-        console.error("Ошибка при оплате:", err);
-        showAnons('Ошибка при обработке заказа');
-    } finally {
-        btn.disabled = false;
-        btn.textContent = "Перейти к оплате";
-    }
-});
+        try {
+            // Получаем актуальные цифры перед обновлением
+            const { data: profile } = await client
+                .from('users_profile')
+                .select('total_orders, total_spent')
+                .eq('id', user.id)
+                .single();
 
-// Закрытие модалки при клике на фон
-payment.addEventListener('click', (e) => {
-    if (e.target === payment) {
-        payment.classList.remove('payment--open');
-    }
-});
+            const { error: updateError } = await client
+                .from('users_profile')
+                .update({
+                    total_orders: (profile.total_orders || 0) + 1,
+                    total_spent: (profile.total_spent || 0) + BookPrice,
+                    last_order: title.innerText
+                })
+                .eq('id', user.id);
+
+            if (updateError) throw updateError;
+
+            payment.classList.remove('payment--open');
+            showAnons('Оплата прошла успешно!');
+
+        } catch (err) {
+            console.error(err);
+            showAnons('Ошибка при оплате');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = "Оплатить заказ";
+        }
+    });

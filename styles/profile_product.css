@@ -10,6 +10,17 @@
     text-align: center;    
 }
 
+.payment__details {
+    text-align: left;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #444;
+}
+.payment__details span {
+    font-weight: bold;
+    color: #0A183B;
+}
+
 /** Мобильная версия **/
 
 @media (max-width: 1200px) {

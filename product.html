@@ -39,18 +39,19 @@
         </div>
         <div class="payment">
             <div class="payment__window">
-                <p class="payment__BefPrice">к оплате</p>
+                <p class="payment__BefPrice">Подтверждение заказа</p>
                 <p class="payment__price">0</p>
                 <p class="payment__subPrice">рублей</p>
                 
                 <div class="payment__string"></div>
+                
+                <div class="payment__details">
+                    <p>Товар: <span id="confirm-title">—</span></p>
+                    <p>Доставка: <span id="confirm-address">—</span></p>
+                </div>
 
-                <form action="" class="payment__form">
-                    <input type="text" class="payment__input" id="pay-address" placeholder="Ваш адрес" required>
-                    
-                    <input type="email" class="payment__input" id="pay-email" placeholder="Ваш email" required>
-                    
-                    <button class="payment__pay" type="submit">Перейти к оплате</button>
+                <form class="payment__form">
+                    <button class="payment__pay" type="submit">Оплатить заказ</button>
                 </form>
             </div>
         </div>
