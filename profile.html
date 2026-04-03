@@ -47,64 +47,64 @@
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 <script>
-  const client = window.supabase.createClient(
-    "https://cejwvftwqbsynomkodvy.supabase.co",
-    "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
-  );
+const client = window.supabase.createClient(
+  "https://cejwvftwqbsynomkodvy.supabase.co",
+  "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
+);
 
-  // Создаём профиль пользователя, если его ещё нет
-  async function createUserProfileIfNotExists(userId) {
-    const { data, error } = await client
-      .from('users_profile')
-      .insert([{ id: userId }])
-      .select();
+// Создаём профиль пользователя, если его ещё нет
+async function createUserProfileIfNotExists(userId) {
+  const { data, error } = await client
+    .from('users_profile')
+    .insert([{ id: userId }])
+    .select();
 
-    if (error && !error.message.includes("duplicate key")) {
-      console.error("Ошибка создания профиля:", error);
-    }
+  if (error && !error.message.includes("duplicate key")) {
+    console.error("Ошибка создания профиля:", error);
+  }
+}
+
+// Загружаем профиль
+async function loadProfile() {
+  const { data: userData, error: userError } = await client.auth.getUser();
+
+  if (!userData.user) {
+    window.location.href = "login.html"; // если не авторизован
+    return;
   }
 
-  // Загружаем профиль
-  async function loadProfile() {
-    const { data: userData } = await client.auth.getUser();
+  const userId = userData.user.id;
 
-    if (!userData.user) {
-      window.location.href = "login.html"; // если не авторизован
-      return;
-    }
+  // Создаём профиль, если его нет
+  await createUserProfileIfNotExists(userId);
 
-    const userId = userData.user.id;
+  // Загружаем данные профиля
+  const { data, error } = await client
+    .from("users_profile")
+    .select("*")
+    .eq("id", userId)
+    .single();
 
-    // Создаём профиль, если его нет
-    await createUserProfileIfNotExists(userId);
-
-    // Загружаем данные профиля
-    const { data, error } = await client
-      .from("users_profile")
-      .select("*")
-      .eq("id", userId)
-      .single();
-
-    if (error) {
-      console.error("Ошибка загрузки профиля:", error.message);
-      return;
-    }
-
-    // Заполняем элементы страницы
-    document.getElementById("user-email").textContent = userData.user.email;
-    document.getElementById("user-created").textContent = new Date(data.created_at).toLocaleDateString();
-    document.getElementById("user-orders").textContent = data.orders;
-    document.getElementById("user-spent").textContent = data.spent + "р";
-    document.getElementById("user-points").textContent = data.points;
+  if (error) {
+    console.error("Ошибка загрузки профиля:", error.message);
+    return;
   }
 
-  // Кнопка выхода
-  document.getElementById("logout").onclick = async () => {
-    await client.auth.signOut();
-    window.location.href = "login.html";
-  };
+  // Заполняем элементы страницы
+  document.getElementById("user-email").textContent = userData.user.email;
+  document.getElementById("user-created").textContent = new Date(data.registered_at).toLocaleDateString();
+  document.getElementById("user-orders").textContent = data.total_orders ?? 0;
+  document.getElementById("user-spent").textContent = (data.total_spent ?? 0) + "р";
+  document.getElementById("user-points").textContent = "—"; // У тебя нет points, можно скрыть или поставить 0
+}
 
-  loadProfile();
+// Кнопка выхода
+document.getElementById("logout").onclick = async () => {
+  await client.auth.signOut();
+  window.location.href = "login.html";
+};
+
+loadProfile();
 
 
   

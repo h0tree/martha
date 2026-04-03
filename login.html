@@ -126,24 +126,27 @@ button:active {
   );
 
   // Отправка magic link на почту
-  async function sendMagicLink(email) {
-    if (!email) return alert("Введите почту");
+async function sendMagicLink(email) {
+  if (!email) return alert("Введите почту");
 
-    const { data, error } = await client.auth.signInWithOtp({
-      email: email,
-      options: {
-        // ссылка, на которую вернётся пользователь после клика
-        emailRedirectTo: "https://h0tree.github.io/martha/index.html"
-      }
-    });
-
-    if (error) {
-      alert("Ошибка отправки ссылки: " + error.message);
-      return;
+  const { data, error } = await client.auth.signInWithOtp({
+    email: email,
+    options: {
+      // КРИТИЧНО: уберите лишние параметры, если не уверены
+      emailRedirectTo: "https://h0tree.github.io/martha/index.html",
+      shouldCreateUser: true // Разрешить регистрацию новых
     }
+  });
 
-    alert("Письмо отправлено! Проверьте почту и кликните ссылку для входа.");
+  if (error) {
+    // Если здесь 500, значит проблема в настройках провайдера Email в Supabase
+    console.error(error);
+    alert("Ошибка: " + error.message);
+    return;
   }
+
+  alert("Ссылка отправлена! Проверьте папку 'Спам', если письма нет.");
+}
 
   // Создаём профиль пользователя, если его ещё нет
   async function createUserProfileIfNotExists(userId) {
