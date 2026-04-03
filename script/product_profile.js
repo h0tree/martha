@@ -145,3 +145,101 @@ function showAnons(text) {
         anonsWindow.classList.remove('announcement__open');
     }, 3000);
 }
+
+// ... (ваш существующий код загрузки книги остается без изменений) ...
+
+// Находим новые элементы формы для автозаполнения
+const addressInput = document.querySelector('.payment__input[placeholder="Ваш адрес"]');
+const emailInput = document.querySelector('.payment__input[placeholder="Ваш email"]');
+
+// 1. ПРОВЕРКА АВТОРИЗАЦИИ ПРИ НАЖАТИИ "КУПИТЬ"
+buttonPay.addEventListener('click', async () => {
+    const { data: { user } } = await client.auth.getUser();
+
+    if (!user) {
+        // Если не вошел — на логин
+        showAnons('Сначала войдите в систему!');
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1500);
+        return;
+    }
+
+    // Если вошел — открываем модалку и подтягиваем данные
+    payment.classList.add('payment--open');
+    emailInput.value = user.email;
+    emailInput.readOnly = true; // Запрещаем менять email, он привязан к аккаунту
+
+    // Пытаемся подтянуть адрес из профиля, чтобы пользователю не вводить его каждый раз
+    const { data: profile } = await client
+        .from('users_profile')
+        .select('address')
+        .eq('id', user.id)
+        .single();
+    
+    if (profile && profile.address) {
+        addressInput.value = profile.address;
+    }
+});
+
+// 2. ОБРАБОТКА ОПЛАТЫ (БЕКЕНД ЗАКАЗА)
+form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const { data: { user } } = await client.auth.getUser();
+    if (!user) return;
+
+    const btn = form.querySelector('.payment__pay');
+    btn.disabled = true;
+    btn.textContent = "Обработка...";
+
+    try {
+        // Получаем текущие данные профиля для инкремента
+        const { data: currentProfile, error: fetchError } = await client
+            .from('users_profile')
+            .select('total_orders, total_spent')
+            .eq('id', user.id)
+            .single();
+
+        if (fetchError) throw fetchError;
+
+        // Рассчитываем новые значения
+        const newTotalOrders = (currentProfile.total_orders || 0) + 1;
+        const newTotalSpent = (currentProfile.total_spent || 0) + BookPrice;
+        const currentBookTitle = title.innerText; // Название книги из заголовка страницы
+
+        // ОБНОВЛЯЕМ БАЗУ ДАННЫХ
+        const { error: updateError } = await client
+            .from('users_profile')
+            .update({
+                total_orders: newTotalOrders,
+                total_spent: newTotalSpent,
+                last_order: currentBookTitle,
+                address: addressInput.value // Сохраняем адрес, если он изменился
+            })
+            .eq('id', user.id);
+
+        if (updateError) throw updateError;
+
+        // Если всё успешно
+        payment.classList.remove('payment--open');
+        showAnons('Заказ успешно оплачен!');
+        
+        // (Опционально) Можно добавить редирект в профиль через пару секунд
+        /* setTimeout(() => { window.location.href = "profile.html"; }, 2000); */
+
+    } catch (err) {
+        console.error("Ошибка при оплате:", err);
+        showAnons('Ошибка при обработке заказа');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = "Перейти к оплате";
+    }
+});
+
+// Закрытие модалки при клике на фон
+payment.addEventListener('click', (e) => {
+    if (e.target === payment) {
+        payment.classList.remove('payment--open');
+    }
+});

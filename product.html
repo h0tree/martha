@@ -40,12 +40,16 @@
         <div class="payment">
             <div class="payment__window">
                 <p class="payment__BefPrice">к оплате</p>
-                <p class="payment__price">3000</p>
+                <p class="payment__price">0</p>
                 <p class="payment__subPrice">рублей</p>
+                
                 <div class="payment__string"></div>
+
                 <form action="" class="payment__form">
-                    <input type="text" class="payment__input" placeholder="Ваш адрес" required></input>
-                    <input type="email" class="payment__input" placeholder="Ваш email" required></input>
+                    <input type="text" class="payment__input" id="pay-address" placeholder="Ваш адрес" required>
+                    
+                    <input type="email" class="payment__input" id="pay-email" placeholder="Ваш email" required>
+                    
                     <button class="payment__pay" type="submit">Перейти к оплате</button>
                 </form>
             </div>
