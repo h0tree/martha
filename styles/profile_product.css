@@ -16,6 +16,15 @@
     font-size: 14px;
     color: #444;
 }
+
+.payment__details > * {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+}
+
 .payment__details span {
     font-weight: bold;
     color: #0A183B;
