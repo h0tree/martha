@@ -86,4 +86,8 @@
     .preview_imges {
         padding-bottom: 30px;
     }
+
+    .main__product {
+    width: 80%;
+  }
 }
