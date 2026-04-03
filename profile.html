@@ -30,6 +30,15 @@
         </div>
     </header>
 
+  <div id="address-modal" class="modal-overlay" style="display: none;">
+      <div class="modal-card">
+          <h3 class="modal-title">Нужен ваш адрес</h3>
+          <p class="modal-text">Пожалуйста, укажите адрес доставки, чтобы мы могли привозить вам книги быстрее.</p>
+          <input type="text" id="modal-address-input" placeholder="Город, улица, дом, квартира" class="modal-input">
+          <button id="save-address-btn" class="modal-button">Сохранить и продолжить</button>
+      </div>
+  </div>
+
     <div class="container">
         <div class="card profile-card">
             <div class="profile-header">
@@ -56,54 +65,67 @@
             "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
         );
 
-        async function loadProfile() {
-            // 1. Проверяем, авторизован ли пользователь
-            const { data: { user }, error: authError } = await client.auth.getUser();
+async function loadProfile() {
+    const { data: { user } } = await client.auth.getUser();
 
-            if (!user) {
-                console.log("Пользователь не найден, редирект...");
-                window.location.href = "login.html";
-                return;
-            }
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
 
-            // 2. Получаем данные из таблицы users_profile
-            // Мы больше не создаем профиль тут, так как это делает ТРИГГЕР в базе
-            const { data: profile, error: profileError } = await client
-                .from("users_profile")
-                .select("*")
-                .eq("id", user.id)
-                .single();
+    const { data: profile, error } = await client
+        .from("users_profile")
+        .select("*")
+        .eq("id", user.id)
+        .single();
 
-            if (profileError) {
-                console.error("Ошибка загрузки профиля:", profileError.message);
-                // Если профиль вдруг не найден (редкий баг), показываем хотя бы email из auth
-                document.getElementById("user-email").textContent = user.email;
-                return;
-            }
+    if (error) return console.error(error);
 
-            // 3. Заполняем интерфейс данными из таблицы
-            document.getElementById("user-email").textContent = user.email;
-            document.getElementById("user-address").textContent = profile.address || "Не указан";
-            document.getElementById("user-orders").textContent = profile.total_orders || 0;
-            document.getElementById("user-spent").textContent = profile.total_spent || 0;
-            document.getElementById("user-last-order").textContent = profile.last_order || "—";
+    // Заполняем данные на странице
+    document.getElementById("user-email").textContent = user.email;
+    document.getElementById("user-orders").textContent = profile.total_orders || 0;
+    document.getElementById("user-spent").textContent = profile.total_spent || 0;
+    
+    const addressSpan = document.getElementById("user-address");
+    addressSpan.textContent = profile.address || "Не указан";
+
+    // --- ЛОГИКА МОДАЛЬНОГО ОКНА ---
+    if (!profile.address) {
+        const modal = document.getElementById("address-modal");
+        const saveBtn = document.getElementById("save-address-btn");
+        const input = document.getElementById("modal-address-input");
+
+        modal.style.display = "flex"; // Показываем модалку
+
+        saveBtn.onclick = async () => {
+            const newAddress = input.value.trim();
             
-            // Красивая дата регистрации
-            if (profile.registration_date) {
-                const date = new Date(profile.registration_date);
-                document.getElementById("user-created").textContent = date.toLocaleDateString('ru-RU');
+            if (newAddress.length < 5) {
+                alert("Пожалуйста, введите корректный адрес");
+                return;
             }
-        }
 
-        // Выход из системы
-        document.getElementById("logout").onclick = async () => {
-            const { error } = await client.auth.signOut();
-            if (!error) {
-                window.location.href = "login.html";
+            saveBtn.disabled = true;
+            saveBtn.textContent = "Сохранение...";
+
+            // ОБНОВЛЯЕМ БЕКЕНД
+            const { error: updateError } = await client
+                .from("users_profile")
+                .update({ address: newAddress })
+                .eq("id", user.id);
+
+            if (updateError) {
+                alert("Ошибка сохранения: " + updateError.message);
+                saveBtn.disabled = false;
+                saveBtn.textContent = "Попробовать снова";
             } else {
-                alert("Ошибка при выходе");
+                // Успех! Закрываем и обновляем текст на странице
+                modal.style.display = "none";
+                addressSpan.textContent = newAddress;
             }
         };
+    }
+}
 
         // Запуск при загрузке
         loadProfile();
