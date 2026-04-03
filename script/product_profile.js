@@ -211,11 +211,11 @@ buttonPay.addEventListener('click', async () => {
             if (updateError) throw updateError;
 
             payment.classList.remove('payment--open');
-            showAnons('Оплата прошла успешно!');
+            anonsOn('Оплата прошла успешно!');
 
         } catch (err) {
             console.error(err);
-            showAnons('Ошибка при оплате');
+            anonsOn('Ошибка при оплате');
         } finally {
             btn.disabled = false;
             btn.textContent = "Оплатить заказ";
