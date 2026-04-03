@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-
+    <!-- Шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Geologica:wght@100..900&family=Montserrat:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
     <link href="styles/styles-new.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/profile.css">
 </head>
@@ -18,9 +17,12 @@
             <a href="#" class="header-listmenu-text">Случайная книга</a>
             <a href="delivery.html" class="header-listmenu-text">Оплата и доставка</a>
         </nav>
-        <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.2063 20.3956C24.2127 20.3965 25.1777 20.8 25.889 21.5173C26.6004 22.2347 27 23.2073 27 24.2213V25.199C27 26.7191 26.46 28.1899 25.4812 29.3445C22.8316 32.4612 18.8033 34 13.4941 34C8.18489 34 4.15826 32.4612 1.51547 29.3411C0.537685 28.1871 0.000349755 26.7197 0 25.2024V24.2196C0.000447222 23.2056 0.400465 22.2332 1.11215 21.5161C1.82383 20.7991 2.78895 20.396 3.79542 20.3956H23.2063ZM23.2063 22.9461H3.79374C3.45805 22.9461 3.13611 23.0804 2.89875 23.3196C2.66138 23.5588 2.52803 23.8831 2.52803 24.2213V25.2024C2.52803 26.1121 2.85205 26.9929 3.43934 27.6849C5.55391 30.1827 8.87343 31.4495 13.4924 31.4495C18.1148 31.4495 21.4343 30.1827 23.5556 27.6866C24.144 26.9934 24.4672 26.1112 24.4669 25.199V24.2196C24.4665 23.8823 24.3334 23.5589 24.0968 23.3202C23.8602 23.0815 23.5411 22.947 23.2063 22.9461Z" fill="#0A183B"/>
-        </svg>
+        <!-- Иконка профиля (теперь ведет на главную или обновляет страницу) -->
+        <a href="index.html" style="display: flex; align-items: center;">
+            <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.2063 20.3956C24.2127 20.3965 25.1777 20.8 25.889 21.5173C26.6004 22.2347 27 23.2073 27 24.2213V25.199C27 26.7191 26.46 28.1899 25.4812 29.3445C22.8316 32.4612 18.8033 34 13.4941 34C8.18489 34 4.15826 32.4612 1.51547 29.3411C0.537685 28.1871 0.000349755 26.7197 0 25.2024V24.2196C0.000447222 23.2056 0.400465 22.2332 1.11215 21.5161C1.82383 20.7991 2.78895 20.396 3.79542 20.3956H23.2063ZM23.2063 22.9461H3.79374C3.45805 22.9461 3.13611 23.0804 2.89875 23.3196C2.66138 23.5588 2.52803 23.8831 2.52803 24.2213V25.2024C2.52803 26.1121 2.85205 26.9929 3.43934 27.6849C5.55391 30.1827 8.87343 31.4495 13.4924 31.4495C18.1148 31.4495 21.4343 30.1827 23.5556 27.6866C24.144 26.9934 24.4672 26.1112 24.4669 25.199V24.2196C24.4665 23.8823 24.3334 23.5589 24.0968 23.3202C23.8602 23.0815 23.5411 22.947 23.2063 22.9461Z" fill="#0A183B"/>
+            </svg>
+        </a>
 
         <div class="menu-button">
             <span class="menu-button-arrow"> </span>
@@ -35,79 +37,76 @@
                 <div class="email" id="user-email">Загрузка...</div>
             </div>
             <div class="profile-info">
-                <p>Дата регистрации: <span id="user-created">Загрузка...</span></p>
+                <p>Адрес: <span id="user-address">Не указан</span></p>
+                <p>Дата регистрации: <span id="user-created">...</span></p>
                 <p>Всего заказов: <span id="user-orders">0</span></p>
-                <p>Всего потрачено денег: <span id="user-spent">0р</span></p>
-                <p>Баллов: <span id="user-points">0</span></p>
+                <p>Потрачено: <span id="user-spent">0</span>₽</p>
+                <p>Последний заказ: <span id="user-last-order">—</span></p>
             </div>
             <button id="logout" class="logout-button">Выйти</button>
         </div>
     </div>
+
     <script src="script/burger-menu.js"></script>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
-const client = window.supabase.createClient(
-  "https://cejwvftwqbsynomkodvy.supabase.co",
-  "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
-);
+    <script>
+        // Инициализация
+        const client = window.supabase.createClient(
+            "https://cejwvftwqbsynomkodvy.supabase.co",
+            "sb_publishable_CW1Q1g2giFzoC5YUSR2kUQ_RbvkoZaa"
+        );
 
-// Создаём профиль пользователя, если его ещё нет
-async function createUserProfileIfNotExists(userId) {
-  const { data, error } = await client
-    .from('users_profile')
-    .insert([{ id: userId }])
-    .select();
+        async function loadProfile() {
+            // 1. Проверяем, авторизован ли пользователь
+            const { data: { user }, error: authError } = await client.auth.getUser();
 
-  if (error && !error.message.includes("duplicate key")) {
-    console.error("Ошибка создания профиля:", error);
-  }
-}
+            if (!user) {
+                console.log("Пользователь не найден, редирект...");
+                window.location.href = "login.html";
+                return;
+            }
 
-// Загружаем профиль
-async function loadProfile() {
-  const { data: userData, error: userError } = await client.auth.getUser();
+            // 2. Получаем данные из таблицы users_profile
+            // Мы больше не создаем профиль тут, так как это делает ТРИГГЕР в базе
+            const { data: profile, error: profileError } = await client
+                .from("users_profile")
+                .select("*")
+                .eq("id", user.id)
+                .single();
 
-  if (!userData.user) {
-    window.location.href = "login.html"; // если не авторизован
-    return;
-  }
+            if (profileError) {
+                console.error("Ошибка загрузки профиля:", profileError.message);
+                // Если профиль вдруг не найден (редкий баг), показываем хотя бы email из auth
+                document.getElementById("user-email").textContent = user.email;
+                return;
+            }
 
-  const userId = userData.user.id;
+            // 3. Заполняем интерфейс данными из таблицы
+            document.getElementById("user-email").textContent = user.email;
+            document.getElementById("user-address").textContent = profile.address || "Не указан";
+            document.getElementById("user-orders").textContent = profile.total_orders || 0;
+            document.getElementById("user-spent").textContent = profile.total_spent || 0;
+            document.getElementById("user-last-order").textContent = profile.last_order || "—";
+            
+            // Красивая дата регистрации
+            if (profile.registration_date) {
+                const date = new Date(profile.registration_date);
+                document.getElementById("user-created").textContent = date.toLocaleDateString('ru-RU');
+            }
+        }
 
-  // Создаём профиль, если его нет
-  await createUserProfileIfNotExists(userId);
+        // Выход из системы
+        document.getElementById("logout").onclick = async () => {
+            const { error } = await client.auth.signOut();
+            if (!error) {
+                window.location.href = "login.html";
+            } else {
+                alert("Ошибка при выходе");
+            }
+        };
 
-  // Загружаем данные профиля
-  const { data, error } = await client
-    .from("users_profile")
-    .select("*")
-    .eq("id", userId)
-    .single();
-
-  if (error) {
-    console.error("Ошибка загрузки профиля:", error.message);
-    return;
-  }
-
-  // Заполняем элементы страницы
-  document.getElementById("user-email").textContent = userData.user.email;
-  document.getElementById("user-created").textContent = new Date(data.registered_at).toLocaleDateString();
-  document.getElementById("user-orders").textContent = data.total_orders ?? 0;
-  document.getElementById("user-spent").textContent = (data.total_spent ?? 0) + "р";
-  document.getElementById("user-points").textContent = "—"; // У тебя нет points, можно скрыть или поставить 0
-}
-
-// Кнопка выхода
-document.getElementById("logout").onclick = async () => {
-  await client.auth.signOut();
-  window.location.href = "login.html";
-};
-
-loadProfile();
-
-
-  
-</script>
+        // Запуск при загрузке
+        loadProfile();
+    </script>
 </body>
 </html>
