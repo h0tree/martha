@@ -326,6 +326,10 @@ body {
 @media (max-width: 1200px) {
 
 
+    .swiper-slide {
+        height: 100%;
+    }
+
     .catalog, .banner {
         width: 90%;
     }
