@@ -75,11 +75,10 @@
 
     .product_promo_input {
         margin: 30px 0;
+        width: 120px;
+        font-size: 10px;
     }
 
-    .product_promo {
-        flex-direction: column;
-    }
     
     .product_promo > * {
         transform: scale(0.9);
