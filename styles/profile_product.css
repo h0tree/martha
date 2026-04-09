@@ -35,6 +35,7 @@
 
 @media (max-width: 1200px) {
     .product__content {
+        width: 110%;
         display: flex;
         flex-direction: column;
         align-items: center;
