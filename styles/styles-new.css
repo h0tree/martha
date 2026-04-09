@@ -328,6 +328,7 @@ body {
 
     .swiper-slide > *{
         height: 50%;
+        width: auto;
     }
 
     .catalog, .banner {
