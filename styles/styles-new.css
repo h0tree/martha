@@ -327,12 +327,12 @@ body {
 
 
     .swiper-slide img {
-        height: 110%;
+        height: 115%;
         width: auto;
     }
 
     .swiper-slide > * {
-        height: 110%;
+        height: 115%;
         width: auto;
     }
     
