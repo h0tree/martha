@@ -326,11 +326,16 @@ body {
 @media (max-width: 1200px) {
 
 
-    .swiper-slide > *{
+    .swiper-slide img {
         height: 50%;
         width: auto;
     }
 
+    .swiper-slide > * {
+        height: 50%;
+        width: auto;
+    }
+    
     .catalog, .banner {
         width: 90%;
     }
