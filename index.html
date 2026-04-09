@@ -38,8 +38,20 @@
     <div class="banner">
         <div class="swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="imges/banner/martha.png" alt="" width="1350" height="600"></div>
-            <div class="swiper-slide"><img src="imges/banner/steepness.png" alt="" width="1350" height="600"></div>
+            <div class="swiper-slide">
+                <picture>
+                    <!-- Картинка для мобильных (до 768px) -->
+                    <source media="(max-width: 768px)" srcset="imges/banner/1775731135099.png">
+                    <!-- Картинка для десктопа (стандартная) -->
+                    <img src="imges/banner/martha.png" alt="Martha">
+                </picture>
+            </div>
+            <div class="swiper-slide">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="imges/banner/1775731202415.png">
+                    <img src="imges/banner/steepness.png" alt="Steepness">
+                </picture>
+            </div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
